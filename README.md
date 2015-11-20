@@ -13,7 +13,30 @@
 
 ## Usage
 
-> Use this scraper to grab course information and import it into a PostgreSQL database
+Install the package via `npm install react-native-star-rating --save`. Then require it in your JavaScript file via `require('react-native-star-rating')`. Check out an example usage below:
+
+```js
+var StarRating = require('react-native-star-rating');
+
+var ExampleComponent = React.createClass({
+  onStarRatingPress: function (value) {
+    console.log('Rated ' + value + ' stars!');
+  },
+  render() {
+    return (
+      <StarRating 
+        maxStars={5}
+        rating={3.5}
+        disabled={false}
+        starSize={15}
+        selectedStar={this.onStarRatingPress}
+      />
+    );
+  }
+});
+
+module.exports = ExampleComponent;
+```
 
 ## Requirements
 
