@@ -15,7 +15,11 @@
     "rating",
     "ratings",
     "review",
-    "reviews"
+    "reviews",
+    "react-component",
+    "react-native",
+    "ios",
+    "android"
   ],
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
