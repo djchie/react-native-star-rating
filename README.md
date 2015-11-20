@@ -1,6 +1,6 @@
 # React Native Star Rating Component
 
-> A React Native component for generating and displaying interactive star ratings.
+> A React Native component for generating and displaying interactive star ratings. Compatible with both iOS and Android.
 
 ## Table of Contents
 
