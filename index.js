@@ -7,7 +7,7 @@ var {
   View
 } = React;
 
-var {Icon,} = require('react-native-icons');
+var {Icon} = require('react-native-icons');
 var Button = require('react-native-button');
 
 var StarRating = React.createClass({
@@ -28,13 +28,20 @@ var StarRating = React.createClass({
       starColor: 'black',
     };
   },
+  round: function (number) {
+    return (Math.round(number * 2) / 2);
+  },
   getInitialState: function () {
     // Round rating down to nearest .5 star
-    var roundedRating = (Math.round(this.props.rating * 2) / 2);
     return {
       maxStars: this.props.maxStars,
-      rating: roundedRating
+      rating: this.round(this.props.rating)
     };
+  },
+  componentWillReceiveProps: function(nextProps) {
+    this.setState({
+      rating: this.round(nextProps.rating)
+    });
   },
   pressStarButton: function (rating) {
     this.props.selectedStar(rating);
