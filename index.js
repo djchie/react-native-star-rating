@@ -1,5 +1,6 @@
 'use strict';
 
+// React and react native imports
 import React, {
   Component,
   PropTypes,
@@ -7,13 +8,28 @@ import React, {
   Image,
   View
 } from 'react-native';
-import Button from 'react-native-button';
 
-const starImages = {
-  emptyStar: require('./img/empty-star.png'),
-  halfStar: require('./img/half-star.png'),
-  fullStar: require('./img/full-star.png')
-}
+// Third party imports
+import Button from 'react-native-button';
+import EntypoIcons from 'react-native-vector-icons/Entypo';
+import EvilIconsIcons from 'react-native-vector-icons/EvilIcons';
+import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
+import FoundationIcons from 'react-native-vector-icons/Foundation';
+import IoniconsIcons from 'react-native-vector-icons/Ionicons';
+import MaterialIconsIcons from 'react-native-vector-icons/MaterialIcons';
+import OcticonsIcons from 'react-native-vector-icons/Octicons';
+import ZocialIcons from 'react-native-vector-icons/Zocial';
+
+const iconSets = {
+  Entypo: EntypoIcons,
+  EvilIcons: EvilIconsIcons,
+  FontAwesome: FontAwesomeIcons,
+  Foundation: FoundationIcons,
+  Ionicons: IoniconsIcons,
+  MaterialIcons: MaterialIconsIcons,
+  Octicons: OcticonsIcons,
+  Zocial: ZocialIcons
+};
 
 class StarRating extends Component {
 
@@ -29,24 +45,22 @@ class StarRating extends Component {
   }
 
   pressStarButton(rating) {
-    console.log('pressStarButton', rating);
     this.props.selectedStar(rating);
-    if (!this.props.disabled) {
-      this.setState({
-        rating: rating
-      });
-    }
+    this.setState({
+      rating: rating
+    });
   }
 
   render() {
     var starsLeft = this.state.rating;
     const starButtons = [];
     for (var i = 0; i < this.state.maxStars; i++) {
-      var starImage = starImages.emptyStar;
+      const Icon = iconSets[this.props.iconSet];
+      var starImage = this.props.emptyStar;
       if (starsLeft >= 1) {
-        starImage = starImages.fullStar;
+        starImage = this.props.fullStar;
       } else if (starsLeft === 0.5) {
-        starImage = starImages.halfStar;
+        starImage = this.props.halfStar;
       }
       starButtons.push(
         <Button
@@ -59,12 +73,10 @@ class StarRating extends Component {
             width: this.props.starSize,
           }}
         >
-          <Image
-            source={starImage}
-            style={{
-              height: this.props.starSize,
-              width: this.props.starSize
-            }}
+          <Icon
+            name={starImage}
+            size={this.props.starSize}
+            color={this.props.starColor}
           />
         </Button>
       );
@@ -86,6 +98,10 @@ StarRating.propTypes = {
   style: View.propTypes.style,
   starSize: PropTypes.number,
   starColor: PropTypes.string,
+  iconSet: PropTypes.string,
+  emptyStar: PropTypes.string,
+  halfStar: PropTypes.string,
+  fullStar: PropTypes.string
 }
 
 StarRating.defaultProps = {
@@ -93,6 +109,10 @@ StarRating.defaultProps = {
   maxStars: 5,
   rating: 0,
   starColor: 'black',
+  iconSet: 'FontAwesome',
+  emptyStar: 'star-o',
+  halfStar: 'star-half-o',
+  fullStar: 'star'
 }
 
 const styles = StyleSheet.create({
