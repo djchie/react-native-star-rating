@@ -1,77 +1,69 @@
 'use strict';
 
-var React = require('react-native');
-
-var {
+import React, {
+  Component,
+  PropTypes,
   StyleSheet,
+  Image,
   View
-} = React;
+} from 'react-native';
+import Button from 'react-native-button';
 
-var {Icon,} = require('react-native-icons');
-var Button = require('react-native-button');
+const starImages = {
+  emptyStar: require('./img/empty-star.png'),
+  halfStar: require('./img/half-star.png'),
+  fullStar: require('./img/full-star.png')
+}
 
-var StarRating = React.createClass({
-  propTypes: {
-    disabled: React.PropTypes.bool,
-    maxStars: React.PropTypes.number,
-    rating: React.PropTypes.number,
-    selectedStar: React.PropTypes.func,
-    style: View.propTypes.style,
-    starSize: React.PropTypes.number,
-    starColor: React.PropTypes.string,
-  },
-  getDefaultProps: function() {
-    return {
-      disabled: false,
-      maxStars: 5,
-      rating: 0,
-      starColor: 'black',
-    };
-  },
-  getInitialState: function () {
+class StarRating extends Component {
+
+  constructor(props) {
+    super(props);
+
     // Round rating down to nearest .5 star
-    var roundedRating = (Math.round(this.props.rating * 2) / 2);
-    return {
+    const roundedRating = (Math.round(this.props.rating * 2) / 2);
+    this.state = {
       maxStars: this.props.maxStars,
       rating: roundedRating
     };
-  },
-  pressStarButton: function (rating) {
+  }
+
+  pressStarButton(rating) {
+    console.log('pressStarButton', rating);
     this.props.selectedStar(rating);
     if (!this.props.disabled) {
       this.setState({
-        rating: rating,
+        rating: rating
       });
     }
-  },
-  render: function () {
+  }
+
+  render() {
     var starsLeft = this.state.rating;
-    var starButtons = [];
+    const starButtons = [];
     for (var i = 0; i < this.state.maxStars; i++) {
-      var starIcon = 'fontawesome|star-o';
+      var starImage = starImages.emptyStar;
       if (starsLeft >= 1) {
-        starIcon = 'fontawesome|star';
+        starImage = starImages.fullStar;
       } else if (starsLeft === 0.5) {
-        starIcon = 'fontawesome|star-half-o';
+        starImage = starImages.halfStar;
       }
       starButtons.push(
         <Button
           activeOpacity={0.20}
           disabled={this.props.disabled}
           key={i + 1}
-          onPress={this.pressStarButton.bind(this, (i + 1))}
+          onPress={this.pressStarButton.bind(this, i + 1)}
           style={{
             height: this.props.starSize,
             width: this.props.starSize,
           }}
         >
-          <Icon
-            name={starIcon}
-            size={this.props.starSize}
-            color={this.props.starColor}
+          <Image
+            source={starImage}
             style={{
               height: this.props.starSize,
-              width: this.props.starSize,
+              width: this.props.starSize
             }}
           />
         </Button>
@@ -83,18 +75,31 @@ var StarRating = React.createClass({
         {starButtons}
       </View>
     );
-  },
-});
+  }
+};
 
-var styles = StyleSheet.create({
+StarRating.propTypes = {
+  disabled: PropTypes.bool,
+  maxStars: PropTypes.number,
+  rating: PropTypes.number,
+  selectedStar: PropTypes.func.isRequired,
+  style: View.propTypes.style,
+  starSize: PropTypes.number,
+  starColor: PropTypes.string,
+}
+
+StarRating.defaultProps = {
+  disabled: false,
+  maxStars: 5,
+  rating: 0,
+  starColor: 'black',
+}
+
+const styles = StyleSheet.create({
   starRatingContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  starButton: {
-  },
-  star: {
-  },
+  }
 });
 
 module.exports = StarRating;
