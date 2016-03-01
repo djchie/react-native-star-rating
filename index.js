@@ -5,7 +5,6 @@ import React, {
   Component,
   PropTypes,
   StyleSheet,
-  Image,
   View
 } from 'react-native';
 
@@ -56,11 +55,11 @@ class StarRating extends Component {
     const starButtons = [];
     for (var i = 0; i < this.state.maxStars; i++) {
       const Icon = iconSets[this.props.iconSet];
-      var starImage = this.props.emptyStar;
+      var starIconName = this.props.emptyStar;
       if (starsLeft >= 1) {
-        starImage = this.props.fullStar;
+        starIconName = this.props.fullStar;
       } else if (starsLeft === 0.5) {
-        starImage = this.props.halfStar;
+        starIconName = this.props.halfStar;
       }
       starButtons.push(
         <Button
@@ -74,7 +73,7 @@ class StarRating extends Component {
           }}
         >
           <Icon
-            name={starImage}
+            name={starIconName}
             size={this.props.starSize}
             color={this.props.starColor}
           />
@@ -100,8 +99,7 @@ StarRating.propTypes = {
   rating: PropTypes.number,
   selectedStar: PropTypes.func.isRequired,
   starColor: PropTypes.string,
-  starSize: PropTypes.number,
-  style: View.propTypes.style
+  starSize: PropTypes.number
 }
 
 StarRating.defaultProps = {
