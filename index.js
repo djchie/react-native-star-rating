@@ -92,27 +92,28 @@ class StarRating extends Component {
 
 StarRating.propTypes = {
   disabled: PropTypes.bool,
+  emptyStar: PropTypes.string,
+  fullStar: PropTypes.string,
+  halfStar: PropTypes.string,
+  iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
   selectedStar: PropTypes.func.isRequired,
-  style: View.propTypes.style,
-  starSize: PropTypes.number,
   starColor: PropTypes.string,
-  iconSet: PropTypes.string,
-  emptyStar: PropTypes.string,
-  halfStar: PropTypes.string,
-  fullStar: PropTypes.string
+  starSize: PropTypes.number,
+  style: View.propTypes.style
 }
 
 StarRating.defaultProps = {
   disabled: false,
+  emptyStar: 'star-o',
+  fullStar: 'star',
+  halfStar: 'star-half-o',
+  iconSet: 'FontAwesome',
   maxStars: 5,
   rating: 0,
   starColor: 'black',
-  iconSet: 'FontAwesome',
-  emptyStar: 'star-o',
-  halfStar: 'star-half-o',
-  fullStar: 'star'
+  starSize: 40
 }
 
 const styles = StyleSheet.create({
