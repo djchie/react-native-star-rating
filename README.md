@@ -76,7 +76,9 @@ class GeneralStarExample extends Component {
 export default GeneralStarExample
 ```
 
-<img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/general-star-demo.gif" alt="General Star Example" width="336" height="600"/>
+<p align="center">
+  <img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/general-star-demo.gif" alt="General Star Example" width="336" height="600"/>
+</p>
 
 ### Custom Star Case
 
@@ -120,7 +122,9 @@ class CustomStarExample extends Component {
 export default CustomStarExample
 ```
 
-<img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/custom-star-demo.gif" alt="Custom Star Example" width="336" height="600"/>
+<p align="center">
+  <img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/custom-star-demo.gif" alt="Custom Star Example" width="336" height="600"/>
+</p>
 
 ### Roadmap
 
