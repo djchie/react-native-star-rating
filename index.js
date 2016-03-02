@@ -36,11 +36,21 @@ class StarRating extends Component {
     super(props);
 
     // Round rating down to nearest .5 star
-    const roundedRating = (Math.round(this.props.rating * 2) / 2);
+    const roundedRating = this.round(this.props.rating);
     this.state = {
       maxStars: this.props.maxStars,
-      rating: roundedRating
+      rating: this.round(this.props.rating)
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      rating: this.round(nextProps.rating)
+    });
+  }
+
+  round(number) {
+    return (Math.round(number * 2) / 2);
   }
 
   pressStarButton(rating) {
