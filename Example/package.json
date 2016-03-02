@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.21.0",
-    "react-native-star-rating": "^1.0.4"
+    "react-native-star-rating": "^1.0.5"
   }
 }
