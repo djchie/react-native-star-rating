@@ -7,8 +7,8 @@
 1. [Installation](#installation)
 1. [Usage](#usage)
   1. [Props](#props)
-  1. [General Case](#general-case)
-  1. [Custom Star Case](#custom-star-case)
+  1. [General Star Example](#general-star-example)
+  1. [Custom Star Example](#custom-star-example)
 1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
@@ -39,7 +39,7 @@ And then set up [react-native-vector-icons](https://github.com/oblador/react-nat
 
 For the `emptyStar`, `fullStar`, `halfStar`, and `iconSet` props, please refer to the [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) package for the valid `string` names for the star icons. When selecting the icon `string` names, you must remember to remove the font family name before the first hyphen. For example, if you want to use the `ion-ios-star` from the Ionicon font set, you would set the `fullStar` prop to `ios-star` and the `iconSet` to `Ionicons`.
 
-### General Example
+### General Star Example
 
 The following example will render 3.5 stars out of 5 stars using the `star-o` for the empty star icon, `star-half-o` for the half star icon, and `star` for the full star icon from the `FontAwesome` icon set in black color.
 
