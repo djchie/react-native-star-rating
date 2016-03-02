@@ -121,4 +121,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = StarRating;
+export default StarRating;

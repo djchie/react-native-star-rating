@@ -4,51 +4,123 @@
 
 ## Table of Contents
 
+1. [Installation](#installation)
 1. [Usage](#usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installation](#installation)
-    1. [Roadmap](#roadmap)
+  1. [Props](#props)
+  1. [General Case](#general-case)
+  1. [Custom Star Case](#custom-star-case)
+1. [Roadmap](#roadmap)
 1. [Contributing](#contributing)
 
-## Usage
-
-Install the package via `npm install react-native-star-rating --save`. Then require it in your JavaScript file via `require('react-native-star-rating')`. Check out an example usage below:
-
-```js
-var StarRating = require('react-native-star-rating');
-
-var ExampleComponent = React.createClass({
-  onStarRatingPress: function (value) {
-    console.log('Rated ' + value + ' stars!');
-  },
-  render() {
-    return (
-      <StarRating 
-        maxStars={5}
-        rating={3.5}
-        disabled={false}
-        starSize={15}
-        selectedStar={this.onStarRatingPress}
-      />
-    );
-  }
-});
-
-module.exports = ExampleComponent;
-```
-
-## Requirements
-
-- Node
-
-## Development
-
-### Installation
+## Installation
 
 ```sh
 npm install react-native-star-rating --save
 ```
+
+And then set up [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) for your project.
+
+## Usage
+
+### Props
+
+| Prop | Type | Description | Required | Default |
+|---|---|---|---|---|
+|**`disabled`**|`bool`|Sets the interactivity of the star buttons. |`No`|`false`|
+|**`emptyStar`**|`string`|The name of the icon to represent an empty star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). |`No`|`star-o`|
+|**`fullStar`**|`string`|The name of the icon to represent a full star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). |`No`|`star`|
+|**`halfStar`**|`string`|The name of the icon to represent an half star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).  |`No`|`star-half-o`|
+|**`iconSet`**|`string`|The name of the icon set the star image belongs to. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).  |`No`|`FontAwesome`|
+|**`maxStars`**|`number`|The maximum number of stars possible. |`No`|`5`|
+|**`rating`**|`number`|The current rating to show.  |`No`|`0`|
+|**`selectedStar`**|`function`|A function to handle star button presses. |`Yes`|*None*|
+|**`starColor`**|`string`|Color of the star. |`No`|`black`|
+|**`starSize`**|`number`|Size of the star. |`No`|`40`|
+
+For the `emptyStar`, `fullStar`, `halfStar`, and `iconSet` props, please refer to the [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) package for the valid `string` names for the star icons. When selecting the icon `string` names, you must remember to remove the font family name before the first hyphen. For example, if you want to use the `ion-ios-star` from the Ionicon font set, you would set the `fullStar` prop to `ios-star` and the `iconSet` to `Ionicons`.
+
+### General Example
+
+The following example will render 3.5 stars out of 5 stars using the `star-o` for the empty star icon, `star-half-o` for the half star icon, and `star` for the full star icon from the `FontAwesome` icon set in black color.
+
+```js
+import StarRating from 'react-native-star-rating';
+
+class GeneralStarExample extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      starCount: 3.5
+    };
+  }
+
+  onStarRatingPress(rating) {
+    this.setState({
+      starCount: rating
+    });
+  }
+
+  render() {
+    return (
+      <StarRating 
+        disabled={false}
+        maxStars={5}
+        rating={this.state.starCount}
+        selectedStar={(rating) => this.onStarRatingPress(rating)}
+      />
+    );
+  }
+}
+
+export default GeneralStarExample
+```
+
+![General Star Example](https://github.com/djchie/react-native-star-rating/blob/master/assets/general-star-demo.gif)
+
+### Custom Star Case
+
+The following example will render 2.5 stars out of 7 stars using the `ios-star-outline` for the empty star icon, `ios-star-half` for the half star icon, and `ios-star` for the full star icon from the `Ionicons` icon set in red color.
+
+```js
+import StarRating from 'react-native-star-rating';
+
+class CustomStarExample extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      starCount: 2.5
+    };
+  }
+
+  onStarRatingPress(rating) {
+    this.setState({
+      starCount: rating
+    });
+  }
+
+  render() {
+    return (
+      <StarRating 
+        disabled={false}
+        emptyStar={'ios-star-outline'}
+        fullStar={'ios-star'}
+        halfStar={'ios-star-half'}
+        iconSet={'Ionicons'}
+        maxStars={7}
+        rating={this.state.starCount}
+        selectedStar={(rating) => this.onStarRatingPress(rating)}
+        starColor={'red'}
+      />
+    );
+  }
+}
+
+export default CustomStarExample
+```
+
+![Custom Star Example](https://github.com/djchie/react-native-star-rating/blob/master/assets/custom-star-demo.gif)
 
 ### Roadmap
 
