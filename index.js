@@ -1,9 +1,8 @@
 'use strict';
 
 // React and react native imports
-import React, {
-  Component,
-  PropTypes,
+import React, { PropTypes, Component } from 'react' 
+import {
   StyleSheet,
   View
 } from 'react-native';
