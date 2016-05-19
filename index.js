@@ -65,7 +65,7 @@ class StarRating extends Component {
     const starButtons = [];
     for (var i = 0; i < this.state.maxStars; i++) {
       const Icon = iconSets[this.props.iconSet];
-      var starIconName = this.props.fullStar;
+      var starIconName = this.props.emptyStar;
       var starColor = this.props.emptyStarColor;
       if (starsLeft >= 1) {
         starIconName = this.props.fullStar;
