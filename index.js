@@ -1,12 +1,15 @@
 'use strict';
 
 // React and react native imports
-import React, {
-  Component,
-  PropTypes,
+import {
   StyleSheet,
   View
 } from 'react-native';
+
+import React, {
+  Component,
+  PropTypes
+} from 'react';
 
 // Third party imports
 import Button from 'react-native-button';
