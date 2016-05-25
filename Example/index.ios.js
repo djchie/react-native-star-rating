@@ -3,13 +3,8 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, {Component} from 'react';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 import StarRating from 'react-native-star-rating';
 

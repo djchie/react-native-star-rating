@@ -1,12 +1,7 @@
 'use strict';
 
-// React and react native imports
-import React, {
-  Component,
-  PropTypes,
-  StyleSheet,
-  View
-} from 'react-native';
+import React, {Component, PropTypes} from 'react';
+import {StyleSheet, View} from 'react-native';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -97,7 +92,7 @@ class StarRating extends Component {
       </View>
     );
   }
-};
+}
 
 StarRating.propTypes = {
   disabled: PropTypes.bool,
