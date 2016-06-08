@@ -68,9 +68,7 @@ class StarRating extends Component {
       }
       starButtons.push(
         <Button
-          containerStyle={
-            this.props.buttonStyle,
-          }
+          containerStyle={ this.props.buttonStyle }
           activeOpacity={0.20}
           disabled={this.props.disabled}
           key={i + 1}
