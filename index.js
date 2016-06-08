@@ -72,10 +72,13 @@ class StarRating extends Component {
           disabled={this.props.disabled}
           key={i + 1}
           onPress={this.pressStarButton.bind(this, i + 1)}
-          style={{
-            height: this.props.starSize,
-            width: this.props.starSize,
-          }}
+          style={[
+            this.props.buttonStyle,
+            {
+              height: this.props.starSize,
+              width: this.props.starSize,
+            }
+          ]}
         >
           <Icon
             name={starIconName}
@@ -104,7 +107,8 @@ StarRating.propTypes = {
   rating: PropTypes.number,
   selectedStar: PropTypes.func.isRequired,
   starColor: PropTypes.string,
-  starSize: PropTypes.number
+  starSize: PropTypes.number,
+  buttonStyle: View.propTypes.style
 }
 
 StarRating.defaultProps = {
