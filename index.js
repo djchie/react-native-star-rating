@@ -68,17 +68,17 @@ class StarRating extends Component {
       }
       starButtons.push(
         <Button
+          containerStyle={
+            this.props.buttonStyle,
+          }
           activeOpacity={0.20}
           disabled={this.props.disabled}
           key={i + 1}
           onPress={this.pressStarButton.bind(this, i + 1)}
-          style={[
-            this.props.buttonStyle,
-            {
-              height: this.props.starSize,
-              width: this.props.starSize,
-            }
-          ]}
+          style={{
+            height: this.props.starSize,
+            width: this.props.starSize,
+          }}
         >
           <Icon
             name={starIconName}
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   starRatingContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-  }
+  },
 });
 
 export default StarRating;
