@@ -1,15 +1,12 @@
 'use strict';
 
 // React and react native imports
-import {
+import ReactNative, {
   StyleSheet,
   View
 } from 'react-native';
 
-import React, {
-  Component,
-  PropTypes
-} from 'react';
+import React, {Component, PropTypes} from 'react'
 
 // Third party imports
 import Button from 'react-native-button';
@@ -134,4 +131,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StarRating;
+module.exports = StarRating;

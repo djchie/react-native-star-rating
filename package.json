@@ -1,11 +1,65 @@
 {
-  "name": "react-native-star-rating",
-  "version": "1.0.5",
-  "description": "A React Native component for generating and displaying interactive star ratings",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "_args": [
+    [
+      "react-native-star-rating",
+      "/Users/wesleyhoffman/Projects/Caliber Contracts/bulletyn/screens"
+    ]
+  ],
+  "_from": "react-native-star-rating@latest",
+  "_id": "react-native-star-rating@1.0.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-star-rating",
+  "_nodeVersion": "4.2.4",
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-star-rating-1.0.5.tgz_1456917543660_0.15261210105381906"
   },
+  "_npmUser": {
+    "email": "djchie.dev@gmail.com",
+    "name": "djchie"
+  },
+  "_npmVersion": "3.7.3",
+  "_phantomChildren": {
+    "yargs": "3.32.0"
+  },
+  "_requested": {
+    "name": "react-native-star-rating",
+    "raw": "react-native-star-rating",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-star-rating/-/react-native-star-rating-1.0.5.tgz",
+  "_shasum": "a858cee43470b5eec64c96cfd154b930977e39de",
+  "_shrinkwrap": null,
+  "_spec": "react-native-star-rating",
+  "_where": "/Users/wesleyhoffman/Projects/Caliber Contracts/bulletyn/screens",
+  "author": {
+    "email": "djchie.dev@gmail.com",
+    "name": "Derrick Chie",
+    "url": "https://github.com/djchie"
+  },
+  "bugs": {
+    "url": "https://github.com/djchie/react-native-star-rating/issues"
+  },
+  "dependencies": {
+    "react-native-button": "^1.2.1",
+    "react-native-vector-icons": "^2.0.3"
+  },
+  "description": "A React Native component for generating and displaying interactive star ratings",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "a858cee43470b5eec64c96cfd154b930977e39de",
+    "tarball": "https://registry.npmjs.org/react-native-star-rating/-/react-native-star-rating-1.0.5.tgz"
+  },
+  "gitHead": "3e24cc7cb45f3150e3ae4b5ca562b7d3abee57ef",
+  "homepage": "https://github.com/djchie/react-native-star-rating",
   "keywords": [
     "react",
     "native",
@@ -21,18 +75,26 @@
     "ios",
     "android"
   ],
-  "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
-  "dependencies": {
-    "react-native-button": "^1.5.0",
-    "react-native-vector-icons": "^2.0.2"
+  "main": "index.js",
+  "maintainers": [
+    {
+      "email": "djchie.dev@gmail.com",
+      "name": "djchie"
+    }
+  ],
+  "name": "react-native-star-rating",
+  "optionalDependencies": {},
+  "peerDependencies": {
+    "react-native": "^0.21.0"
   },
+  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
-    "url": "https://github.com/djchie/react-native-star-rating.git"
+    "url": "git+https://github.com/djchie/react-native-star-rating.git"
   },
-  "bugs": {
-    "url": "https://github.com/djchie/react-native-star-rating/issues"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "https://github.com/djchie/react-native-star-rating"
+  "version": "1.0.5"
 }
