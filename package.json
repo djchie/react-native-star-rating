@@ -1,20 +1,10 @@
 {
-  "_args": [
-    [
-      "react-native-star-rating",
-      "/Users/wesleyhoffman/Projects/Caliber Contracts/bulletyn/screens"
-    ]
-  ],
   "_from": "react-native-star-rating@latest",
   "_id": "react-native-star-rating@1.0.5",
   "_inCache": true,
   "_installable": true,
   "_location": "/react-native-star-rating",
   "_nodeVersion": "4.2.4",
-  "_npmOperationalInternal": {
-    "host": "packages-13-west.internal.npmjs.com",
-    "tmp": "tmp/react-native-star-rating-1.0.5.tgz_1456917543660_0.15261210105381906"
-  },
   "_npmUser": {
     "email": "djchie.dev@gmail.com",
     "name": "djchie"
@@ -35,10 +25,8 @@
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/react-native-star-rating/-/react-native-star-rating-1.0.5.tgz",
-  "_shasum": "a858cee43470b5eec64c96cfd154b930977e39de",
   "_shrinkwrap": null,
   "_spec": "react-native-star-rating",
-  "_where": "/Users/wesleyhoffman/Projects/Caliber Contracts/bulletyn/screens",
   "author": {
     "email": "djchie.dev@gmail.com",
     "name": "Derrick Chie",
@@ -54,11 +42,6 @@
   "description": "A React Native component for generating and displaying interactive star ratings",
   "devDependencies": {},
   "directories": {},
-  "dist": {
-    "shasum": "a858cee43470b5eec64c96cfd154b930977e39de",
-    "tarball": "https://registry.npmjs.org/react-native-star-rating/-/react-native-star-rating-1.0.5.tgz"
-  },
-  "gitHead": "3e24cc7cb45f3150e3ae4b5ca562b7d3abee57ef",
   "homepage": "https://github.com/djchie/react-native-star-rating",
   "keywords": [
     "react",
