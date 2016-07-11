@@ -4,7 +4,7 @@
   "description": "A React Native component for generating and displaying interactive star ratings",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js Example/index.ios.js Example/index.android.js",
+    "lint": "eslint index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pre-publish": "npm run lint && npm run test",
     "clean-modules": "rm -rf node_modules"
