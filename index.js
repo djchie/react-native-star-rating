@@ -128,7 +128,7 @@ StarRating.defaultProps = {
   maxStars: 5,
   rating: 0,
   starColor: 'black',
-  emptyStarColor: 'rgb(188, 188, 188)',
+  emptyStarColor: 'gray',
   starSize: 40
 }
 
