@@ -2,32 +2,13 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
 import React, {
   AppRegistry,
   Component,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
-
-class Example extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -47,5 +28,32 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+class Example extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      generalStarCount: 3.5,
+      customStarCount: 2.5,
+    };
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.android.js
+        </Text>
+        <Text style={styles.instructions}>
+          Shake or press menu button for dev menu
+        </Text>
+      </View>
+    );
+  }
+}
 
 AppRegistry.registerComponent('Example', () => Example);
