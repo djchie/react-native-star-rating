@@ -69,10 +69,13 @@ class StarRating extends Component {
     for (var i = 0; i < this.state.maxStars; i++) {
       const Icon = iconSets[this.props.iconSet];
       var starIconName = this.props.emptyStar;
+      var starColor = this.props.emptyStarColor;
       if (starsLeft >= 1) {
         starIconName = this.props.fullStar;
+        starColor = this.props.starColor;
       } else if (starsLeft === 0.5) {
         starIconName = this.props.halfStar;
+        starColor = this.props.starColor;
       }
       starButtons.push(
         <Button
@@ -88,7 +91,7 @@ class StarRating extends Component {
           <Icon
             name={starIconName}
             size={this.props.starSize}
-            color={this.props.starColor}
+            color={starColor}
           />
         </Button>
       );
@@ -112,6 +115,7 @@ StarRating.propTypes = {
   rating: PropTypes.number,
   selectedStar: PropTypes.func.isRequired,
   starColor: PropTypes.string,
+  emptyStarColor: PropTypes.string,
   starSize: PropTypes.number
 }
 
@@ -124,6 +128,7 @@ StarRating.defaultProps = {
   maxStars: 5,
   rating: 0,
   starColor: 'black',
+  emptyStarColor: 'rgb(188, 188, 188)',
   starSize: 40
 }
 
