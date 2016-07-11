@@ -7,7 +7,7 @@
     "lint": "eslint index.js Example/index.ios.js Example/index.android.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "pre-publish": "npm run lint && npm run test",
-    "clear-modules": "rm -rf node_modules"
+    "clean-modules": "rm -rf node_modules"
   },
   "keywords": [
     "react",
@@ -27,8 +27,6 @@
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
   "dependencies": {
-    "react": "^15.2.1",
-    "react-native": "^0.29.0",
     "react-native-button": "^1.6.0",
     "react-native-vector-icons": "^2.0.3"
   },
