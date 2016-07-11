@@ -3,12 +3,12 @@
 // React and react native imports
 import {
   StyleSheet,
-  View
+  View,
 } from 'react-native';
 
 import React, {
   Component,
-  PropTypes
+  PropTypes,
 } from 'react';
 
 // Third party imports
@@ -30,7 +30,7 @@ const iconSets = {
   Ionicons: IoniconsIcons,
   MaterialIcons: MaterialIconsIcons,
   Octicons: OcticonsIcons,
-  Zocial: ZocialIcons
+  Zocial: ZocialIcons,
 };
 
 class StarRating extends Component {
@@ -42,13 +42,13 @@ class StarRating extends Component {
     const roundedRating = this.round(this.props.rating);
     this.state = {
       maxStars: this.props.maxStars,
-      rating: this.round(this.props.rating)
+      rating: this.round(this.props.rating),
     };
   }
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      rating: this.round(nextProps.rating)
+      rating: this.round(nextProps.rating),
     });
   }
 
@@ -59,7 +59,7 @@ class StarRating extends Component {
   pressStarButton(rating) {
     this.props.selectedStar(rating);
     this.setState({
-      rating: rating
+      rating: rating,
     });
   }
 
@@ -116,7 +116,7 @@ StarRating.propTypes = {
   selectedStar: PropTypes.func.isRequired,
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
-  starSize: PropTypes.number
+  starSize: PropTypes.number,
 }
 
 StarRating.defaultProps = {
@@ -129,7 +129,7 @@ StarRating.defaultProps = {
   rating: 0,
   starColor: 'black',
   emptyStarColor: 'gray',
-  starSize: 40
+  starSize: 40,
 }
 
 const styles = StyleSheet.create({

@@ -8,7 +8,7 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
 
 import StarRating from 'react-native-star-rating';
@@ -18,19 +18,19 @@ class Example extends Component {
     super(props);
     this.state = {
       generalStarCount: 3.5,
-      customStarCount: 2.5
+      customStarCount: 2.5,
     };
   }
 
   onGeneralStarRatingPress(rating) {
     this.setState({
-      generalStarCount: rating
+      generalStarCount: rating,
     });
   }
 
   onCustomStarRatingPress(rating) {
     this.setState({
-      customStarCount: rating
+      customStarCount: rating,
     });
   }
 
