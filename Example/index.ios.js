@@ -68,6 +68,7 @@ class Example extends Component {
           rating={this.state.customStarCount}
           selectedStar={(rating) => this.onCustomStarRatingPress(rating)}
           starColor={'red'}
+          emptyStarColor={'blue'}
         />
       </View>
     );
