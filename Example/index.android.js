@@ -30,6 +30,15 @@ const styles = StyleSheet.create({
 });
 
 class Example extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      generalStarCount: 3.5,
+      customStarCount: 2.5,
+    };
+  }
+
   render() {
     return (
       <View style={styles.container}>

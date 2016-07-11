@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
 });
 
 class Example extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -62,7 +63,7 @@ class Example extends Component {
           General Star Demo
         </Text>
         <Text style={styles.instructions}>
-          {this.state.generalStarCount + ' of stars is displayed'}
+          {`${this.state.generalStarCount} of stars is displayed`}
         </Text>
         <StarRating
           disabled={false}
@@ -74,7 +75,7 @@ class Example extends Component {
           General Star Demo
         </Text>
         <Text style={styles.instructions}>
-          {this.state.customStarCount + ' of stars is displayed'}
+          {`${this.state.customStarCount} of stars is displayed`}
         </Text>
         <StarRating
           disabled={false}
