@@ -1,3 +1,8 @@
+# OSX
+#
+.DS_Store
+
+# Node.js
+#
 node_modules/
 npm-debug.log
-.DS_Store
