@@ -1,5 +1,3 @@
-'use strict';
-
 // React and react native imports
 import {
   StyleSheet,
@@ -33,6 +31,13 @@ const iconSets = {
   Zocial: ZocialIcons,
 };
 
+const styles = StyleSheet.create({
+  starRatingContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});
+
 class StarRating extends Component {
 
   constructor(props) {
@@ -40,9 +45,10 @@ class StarRating extends Component {
 
     // Round rating down to nearest .5 star
     const roundedRating = this.round(this.props.rating);
+
     this.state = {
       maxStars: this.props.maxStars,
-      rating: this.round(this.props.rating),
+      rating: roundedRating,
     };
   }
 
@@ -64,12 +70,14 @@ class StarRating extends Component {
   }
 
   render() {
-    var starsLeft = this.state.rating;
+    let starsLeft = this.state.rating;
     const starButtons = [];
-    for (var i = 0; i < this.state.maxStars; i++) {
+
+    for (let i = 0; i < this.state.maxStars; i++) {
       const Icon = iconSets[this.props.iconSet];
-      var starIconName = this.props.emptyStar;
-      var starColor = this.props.emptyStarColor;
+      let starIconName = this.props.emptyStar;
+      let starColor = this.props.emptyStarColor;
+
       if (starsLeft >= 1) {
         starIconName = this.props.fullStar;
         starColor = this.props.starColor;
@@ -77,6 +85,7 @@ class StarRating extends Component {
         starIconName = this.props.halfStar;
         starColor = this.props.starColor;
       }
+
       starButtons.push(
         <Button
           activeOpacity={0.20}
@@ -97,13 +106,14 @@ class StarRating extends Component {
       );
       starsLeft--;
     }
+
     return (
       <View style={styles.starRatingContainer}>
         {starButtons}
       </View>
     );
   }
-};
+}
 
 StarRating.propTypes = {
   disabled: PropTypes.bool,
@@ -117,7 +127,7 @@ StarRating.propTypes = {
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
-}
+};
 
 StarRating.defaultProps = {
   disabled: false,
@@ -130,13 +140,6 @@ StarRating.defaultProps = {
   starColor: 'black',
   emptyStarColor: 'gray',
   starSize: 40,
-}
-
-const styles = StyleSheet.create({
-  starRatingContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  }
-});
+};
 
 export default StarRating;

@@ -2,7 +2,6 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
 import React, {
   AppRegistry,
   Component,
@@ -12,6 +11,25 @@ import React, {
 } from 'react-native';
 
 import StarRating from 'react-native-star-rating';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
 
 class Example extends Component {
   constructor(props) {
@@ -46,7 +64,7 @@ class Example extends Component {
         <Text style={styles.instructions}>
           {this.state.generalStarCount + ' of stars is displayed'}
         </Text>
-        <StarRating 
+        <StarRating
           disabled={false}
           maxStars={5}
           rating={this.state.generalStarCount}
@@ -58,7 +76,7 @@ class Example extends Component {
         <Text style={styles.instructions}>
           {this.state.customStarCount + ' of stars is displayed'}
         </Text>
-        <StarRating 
+        <StarRating
           disabled={false}
           emptyStar={'ios-star-outline'}
           fullStar={'ios-star'}
@@ -74,24 +92,5 @@ class Example extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
 
 AppRegistry.registerComponent('Example', () => Example);
