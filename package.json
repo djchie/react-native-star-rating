@@ -1,13 +1,38 @@
 {
+  "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
+  "bugs": {
+    "url": "https://github.com/djchie/react-native-star-rating/issues"
+  },
   "name": "react-native-star-rating",
-  "version": "1.0.6",
+  "dependencies": {
+    "react-native-button": "^1.6.0",
+    "react-native-vector-icons": "^2.0.3"
+  },
   "description": "A React Native component for generating and displaying interactive star ratings",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint **.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pre-publish": "npm run lint && npm run test",
-    "clean-modules": "rm -rf node_modules"
+  "devDependencies": {
+    "babel-jest": "^13.2.2",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.11.0",
+    "eslint": "^3.0.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.10.2",
+    "eslint-plugin-jsx-a11y": "^1.5.5",
+    "eslint-plugin-react": "^5.2.2",
+    "jest-cli": "^13.2.3"
+  },
+  "homepage": "https://github.com/djchie/react-native-star-rating",
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "unmockedModulePathPatterns": [
+      "react",
+      "react-native-button",
+      "promise",
+      "source-map"
+    ]
   },
   "keywords": [
     "react",
@@ -24,25 +49,17 @@
     "ios",
     "android"
   ],
-  "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
-  "dependencies": {
-    "react-native-button": "^1.6.0",
-    "react-native-vector-icons": "^2.0.3"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/djchie/react-native-star-rating.git"
   },
-  "bugs": {
-    "url": "https://github.com/djchie/react-native-star-rating/issues"
+  "scripts": {
+    "lint": "eslint **.js",
+    "test": "jest",
+    "pre-publish": "npm run lint && npm run test",
+    "clean-modules": "rm -rf node_modules"
   },
-  "homepage": "https://github.com/djchie/react-native-star-rating",
-  "devDependencies": {
-    "eslint": "^3.0.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.10.2",
-    "eslint-plugin-jsx-a11y": "^1.5.5",
-    "eslint-plugin-react": "^5.2.2"
-  }
+  "version": "1.0.6"
 }
