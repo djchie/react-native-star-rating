@@ -88,7 +88,7 @@ StarRating.propTypes = {
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
-  selectedStar: PropTypes.func.isRequired,
+  selectedStar: PropTypes.func,
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
