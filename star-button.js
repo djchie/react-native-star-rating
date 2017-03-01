@@ -47,6 +47,7 @@ class StarButton extends Component {
         activeOpacity={0.20}
         disabled={this.props.disabled}
         onPress={this.onButtonPress}
+        containerStyle={this.props.buttonStyle}
         style={{
           height: this.props.starSize,
           width: this.props.starSize,
@@ -72,6 +73,7 @@ StarButton.propTypes = {
   starIconName: PropTypes.string,
   starColor: PropTypes.string,
   starStyle: View.propTypes.style,
+  buttonStyle: View.propTypes.style,
 };
 
 export default StarButton;
