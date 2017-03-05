@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/react-native-star-rating.svg)](https://badge.fury.io/js/react-native-star-rating)
 # React Native Star Rating Component
 
 > A React Native component for generating and displaying interactive star ratings. Compatible with both iOS and Android.
