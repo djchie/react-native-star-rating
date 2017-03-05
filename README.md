@@ -1,4 +1,7 @@
 [![npm version](https://badge.fury.io/js/react-native-star-rating.svg)](https://badge.fury.io/js/react-native-star-rating)
+
+[![NPM](https://nodei.co/npm/react-native-star-rating.png?downloads=true)](https://nodei.co/npm/react-native-star-rating/)
+
 # React Native Star Rating Component
 
 > A React Native component for generating and displaying interactive star ratings. Compatible with both iOS and Android.
