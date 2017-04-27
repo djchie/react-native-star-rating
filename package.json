@@ -26,11 +26,9 @@
   ],
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
-  "dependencies": {
-    "react": "^15.5.4",
-    "react-native": "^0.43.4",
+  "peerDependencies": {
     "react-native-button": "^1.6.0",
-    "react-native-vector-icons": "^4.0.1"
+    "react-native-vector-icons": "~4.0.0"
   },
   "repository": {
     "type": "git",
@@ -41,10 +39,10 @@
   },
   "homepage": "https://github.com/djchie/react-native-star-rating",
   "devDependencies": {
-    "eslint": "^3.0.1",
-    "eslint-config-airbnb": "^9.0.1",
-    "eslint-plugin-import": "^1.10.2",
-    "eslint-plugin-jsx-a11y": "^1.5.5",
-    "eslint-plugin-react": "^5.2.2"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
   }
 }
