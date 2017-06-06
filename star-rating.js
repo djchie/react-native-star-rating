@@ -2,6 +2,7 @@
 import {
   StyleSheet,
   View,
+  ViewPropTypes,
 } from 'react-native';
 
 import React, {
@@ -94,8 +95,8 @@ StarRating.propTypes = {
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
-  starStyle: View.propTypes.style,
-  buttonStyle: View.propTypes.style,
+  starStyle: ViewPropTypes.style,
+  buttonStyle: ViewPropTypes.style,
 };
 
 StarRating.defaultProps = {

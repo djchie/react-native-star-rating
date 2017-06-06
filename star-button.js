@@ -3,7 +3,7 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes } from 'react-native';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -72,8 +72,8 @@ StarButton.propTypes = {
   starSize: PropTypes.number,
   starIconName: PropTypes.string,
   starColor: PropTypes.string,
-  starStyle: View.propTypes.style,
-  buttonStyle: View.propTypes.style,
+  starStyle: ViewPropTypes.style,
+  buttonStyle: ViewPropTypes.style,
 };
 
 export default StarButton;
