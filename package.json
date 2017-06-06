@@ -27,7 +27,7 @@
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
   "dependencies": {
-    "react-native-button": "^1.6.0",
+    "react-native-button": "^2.0.0",
     "react-native-vector-icons": "^2.0.3"
   },
   "repository": {
