@@ -10,7 +10,7 @@ import React, {
   View,
 } from 'react-native';
 
-import StarRating from 'react-native-star-rating';
+import StarRating from './star-rating/index';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,8 +36,8 @@ class Example extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      generalStarCount: 3.5,
-      customStarCount: 2.5,
+      generalStarCount: 3,
+      customStarCount: 2,
     };
   }
 
@@ -68,6 +68,7 @@ class Example extends Component {
         <StarRating
           disabled={false}
           maxStars={5}
+          rightToLeft={false}
           rating={this.state.generalStarCount}
           selectedStar={(rating) => this.onGeneralStarRatingPress(rating)}
         />
@@ -80,6 +81,7 @@ class Example extends Component {
         <StarRating
           disabled={false}
           emptyStar={'ios-star-outline'}
+          rightToLeft={true}
           fullStar={'ios-star'}
           halfStar={'ios-star-half'}
           iconSet={'Ionicons'}
