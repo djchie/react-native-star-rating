@@ -1,9 +1,8 @@
 // React and react native imports
 import React, {
-  Component,
-  PropTypes,
+  Component
 } from 'react';
-import { View } from 'react-native';
+import { View, ViewPropTypes, Image } from 'react-native';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -15,6 +14,7 @@ import IoniconsIcons from 'react-native-vector-icons/Ionicons';
 import MaterialIconsIcons from 'react-native-vector-icons/MaterialIcons';
 import OcticonsIcons from 'react-native-vector-icons/Octicons';
 import ZocialIcons from 'react-native-vector-icons/Zocial';
+import PropTypes from 'prop-types';
 
 const iconSets = {
   Entypo: EntypoIcons,
@@ -40,27 +40,25 @@ class StarButton extends Component {
   }
 
   render() {
-    const Icon = iconSets[this.props.iconSet];
-
-    return (
-      <Button
-        activeOpacity={0.20}
-        disabled={this.props.disabled}
-        onPress={this.onButtonPress}
-        containerStyle={this.props.buttonStyle}
-        style={{
-          height: this.props.starSize,
-          width: this.props.starSize,
-        }}
-      >
-        <Icon
-          name={this.props.starIconName}
-          size={this.props.starSize}
-          color={this.props.starColor}
-          style={this.props.starStyle}
-        />
-      </Button>
-    );
+      const Icon = iconSets[this.props.iconSet];
+      const { starSize,starIconName,starColor,starStyle,buttonStyle,disabled } = this.props;
+      return (
+          <Button
+              activeOpacity={0.20}
+              disabled={disabled}
+              onPress={this.onButtonPress}
+              containerStyle={buttonStyle}
+              style={{
+                  height: starSize,
+                  width: starSize,
+              }}
+          >
+              { typeof starIconName ==='string'?
+                  <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/> :
+                  <Image source={starIconName} style={[{width:starSize,height:starSize,resizeMode:'contain'},starStyle]} />
+              }
+          </Button>
+      );
   }
 }
 
@@ -70,10 +68,13 @@ StarButton.propTypes = {
   onStarButtonPress: PropTypes.func,
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
-  starIconName: PropTypes.string,
+  starIconName: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+  ]),
   starColor: PropTypes.string,
-  starStyle: View.propTypes.style,
-  buttonStyle: View.propTypes.style,
+  starStyle: ViewPropTypes.style,
+  buttonStyle: ViewPropTypes.style,
 };
 
 export default StarButton;

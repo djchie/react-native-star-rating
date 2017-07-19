@@ -1,14 +1,13 @@
 // React and react native imports
 import {
   StyleSheet,
-  View,
+  View,ViewPropTypes,
 } from 'react-native';
 
 import React, {
   Component,
-  PropTypes,
 } from 'react';
-
+import PropTypes from 'prop-types';
 // Local file imports
 import StarButton from './star-button';
 
@@ -84,9 +83,18 @@ class StarRating extends Component {
 
 StarRating.propTypes = {
   disabled: PropTypes.bool,
-  emptyStar: PropTypes.string,
-  fullStar: PropTypes.string,
-  halfStar: PropTypes.string,
+  emptyStar: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+  ]),
+  fullStar: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+  ]),
+  halfStar: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+  ]),
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
@@ -94,8 +102,8 @@ StarRating.propTypes = {
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
-  starStyle: View.propTypes.style,
-  buttonStyle: View.propTypes.style,
+  starStyle: ViewPropTypes.style,
+  buttonStyle: ViewPropTypes.style,
 };
 
 StarRating.defaultProps = {

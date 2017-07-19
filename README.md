@@ -31,9 +31,9 @@ And then set up [react-native-vector-icons](https://github.com/oblador/react-nat
 | Prop | Type | Description | Required | Default |
 |---|---|---|---|---|
 |**`disabled`**|`bool`|Sets the interactivity of the star buttons. |`No`|`false`|
-|**`emptyStar`**|`string`|The name of the icon to represent an empty star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). |`No`|`star-o`|
-|**`fullStar`**|`string`|The name of the icon to represent a full star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). |`No`|`star`|
-|**`halfStar`**|`string`|The name of the icon to represent an half star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).  |`No`|`star-half-o`|
+|**`emptyStar`**|`string or image object`|The name of the icon to represent an empty star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). Also can be a image object, both {uri:xxx.xxx} and require('xx/xx/xx.xxx').|`No`|`star-o`|
+|**`fullStar`**|`string or image object`|The name of the icon to represent a full star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons). Also can be a image object, both {uri:xxx.xxx} and require('xx/xx/xx.xxx').|`No`|`star`|
+|**`halfStar`**|`string or image object`|The name of the icon to represent an half star. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).  Also can be a image object, both {uri:xxx.xxx} and require('xx/xx/xx.xxx').|`No`|`star-half-o`|
 |**`iconSet`**|`string`|The name of the icon set the star image belongs to. Refer to [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).  |`No`|`FontAwesome`|
 |**`maxStars`**|`number`|The maximum number of stars possible. |`No`|`5`|
 |**`rating`**|`number`|The current rating to show.  |`No`|`0`|
