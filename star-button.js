@@ -1,8 +1,6 @@
 // React and react native imports
-import React, {
-  Component,
-  PropTypes,
-} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { View, ViewPropTypes } from 'react-native';
 
 // Third party imports
