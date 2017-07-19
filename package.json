@@ -29,7 +29,7 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react-native-button": "^2.1.0",
-    "react-native-vector-icons": "^2.0.3"
+    "react-native-vector-icons": "^4.2.0"
   },
   "repository": {
     "type": "git",
