@@ -71,6 +71,7 @@ StarButton.propTypes = {
   starIconName: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
+      PropTypes.number,
   ]),
   starColor: PropTypes.string,
   starStyle: ViewPropTypes.style,

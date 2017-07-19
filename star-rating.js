@@ -86,14 +86,17 @@ StarRating.propTypes = {
   emptyStar: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
+      PropTypes.number,
   ]),
   fullStar: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
+      PropTypes.number,
   ]),
   halfStar: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
+      PropTypes.number,
   ]),
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
