@@ -5,6 +5,10 @@ import React, {
 } from 'react';
 import { View } from 'react-native';
 
+import {
+  View,
+} from 'react-native';
+
 // Third party imports
 import Button from 'react-native-button';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
@@ -55,12 +59,20 @@ class StarButton extends Component {
           width: this.props.starSize,
         }}
       >
-        <Icon
-          name={this.props.starIconName}
-          size={this.props.starSize}
-          color={this.props.starColor}
-          style={this.props.starStyle}
-        />
+        <View
+          style={{
+            width: this.props.buttonWidth || this.props.buttonSize || this.props.starSize,
+            height: this.props.buttonHeight || this.props.buttonSize || this.props.starSize,
+            justifyContent: 'center',
+            alignItems: 'center',
+        }}>
+          <Icon
+            name={this.props.starIconName}
+            size={this.props.starSize}
+            color={this.props.starColor}
+            style={this.props.starStyle}
+          />
+        </View>
       </Button>
     );
   }
@@ -72,6 +84,9 @@ StarButton.propTypes = {
   onStarButtonPress: PropTypes.func,
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
+  buttonSize: PropTypes.number,
+  buttonWidth: PropTypes.number,
+  buttonHeight: PropTypes.number,
   starIconName: PropTypes.string,
   starColor: PropTypes.string,
   starStyle: View.propTypes.style,
