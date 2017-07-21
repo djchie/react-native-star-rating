@@ -70,6 +70,8 @@ class StarRating extends Component {
           buttonSize={this.props.buttonSize}
           buttonWidth={this.props.buttonWidth}
           buttonHeight={this.props.buttonHeight}
+          starStyle={this.props.starStyle}
+          buttonStyle={this.props.buttonStyle}
         />
       );
       starsLeft--;
@@ -91,13 +93,15 @@ StarRating.propTypes = {
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
-  selectedStar: PropTypes.func.isRequired,
+  selectedStar: PropTypes.func,
   starColor: PropTypes.string,
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
   buttonSize: PropTypes.number,
   buttonWidth: PropTypes.number,
   buttonHeight: PropTypes.number,
+  starStyle: View.propTypes.style,
+  buttonStyle: View.propTypes.style,
 };
 
 StarRating.defaultProps = {
@@ -111,6 +115,8 @@ StarRating.defaultProps = {
   starColor: 'black',
   emptyStarColor: 'gray',
   starSize: 40,
+  starStyle: {},
+  buttonStyle: {},
 };
 
 export default StarRating;

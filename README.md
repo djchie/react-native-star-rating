@@ -1,3 +1,7 @@
+[![npm version](https://badge.fury.io/js/react-native-star-rating.svg)](https://badge.fury.io/js/react-native-star-rating)
+
+[![NPM](https://nodei.co/npm/react-native-star-rating.png?downloads=true)](https://nodei.co/npm/react-native-star-rating/)
+
 # React Native Star Rating Component
 
 > A React Native component for generating and displaying interactive star ratings. Compatible with both iOS and Android.
@@ -40,6 +44,8 @@ And then set up [react-native-vector-icons](https://github.com/oblador/react-nat
 |**`buttonSize`**|`number`|Size of the button hit area. |`No`|`starSize`|
 |**`buttonWidth`**|`number`|Width of the button hit area. |`No`|`buttonSize`|
 |**`buttonHeight`**|`number`|Height of the button hit area. |`No`|`buttonSize`|
+|**`starStyle`**| `View.propTypes.style`| Style to apply to the star. | `No` |*{}*|
+|**`buttonStyle`**|`style`|Style of the button containing the star. |`No`|*None*|
 
 For the `emptyStar`, `fullStar`, `halfStar`, and `iconSet` props, please refer to the [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) package for the valid `string` names for the star icons. When selecting the icon `string` names, you must remember to remove the font family name before the first hyphen. For example, if you want to use the `ion-ios-star` from the Ionicon font set, you would set the `fullStar` prop to `ios-star` and the `iconSet` to `Ionicons`.
 
@@ -67,7 +73,7 @@ class GeneralStarExample extends Component {
 
   render() {
     return (
-      <StarRating 
+      <StarRating
         disabled={false}
         maxStars={5}
         rating={this.state.starCount}
@@ -108,7 +114,7 @@ class CustomStarExample extends Component {
 
   render() {
     return (
-      <StarRating 
+      <StarRating
         disabled={false}
         emptyStar={'ios-star-outline'}
         fullStar={'ios-star'}

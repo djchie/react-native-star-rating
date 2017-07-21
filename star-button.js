@@ -3,6 +3,7 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
+import { View } from 'react-native';
 
 import {
   View,
@@ -50,19 +51,25 @@ class StarButton extends Component {
         activeOpacity={0.20}
         disabled={this.props.disabled}
         onPress={this.onButtonPress}
-        >
+        containerStyle={this.props.buttonStyle}
+        style={{
+          height: this.props.starSize,
+          width: this.props.starSize,
+        }}
+      >
         <View
           style={{
             width: this.props.buttonWidth || this.props.buttonSize || this.props.starSize,
             height: this.props.buttonHeight || this.props.buttonSize || this.props.starSize,
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+        }}>
           <Icon
             name={this.props.starIconName}
             size={this.props.starSize}
             color={this.props.starColor}
-            />
+            style={this.props.starStyle}
+          />
         </View>
       </Button>
     );
@@ -80,6 +87,8 @@ StarButton.propTypes = {
   buttonHeight: PropTypes.number,
   starIconName: PropTypes.string,
   starColor: PropTypes.string,
+  starStyle: View.propTypes.style,
+  buttonStyle: View.propTypes.style,
 };
 
 export default StarButton;
