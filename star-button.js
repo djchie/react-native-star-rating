@@ -35,15 +35,21 @@ class StarButton extends Component {
     super(props);
 
     this.onButtonPress = this.onButtonPress.bind(this);
+    this.renderIcon = this.renderIcon.bind(this);
   }
 
-  onButtonPress() {
-    this.props.onStarButtonPress(this.props.rating);
+  onButtonPress(eventData) {
+    let addition = 0;
+
+    if (this.props.acceptHalfStars) {
+        const firstHalf = eventData.nativeEvent.locationX < this.props.starSize / 2;
+        addition = firstHalf ? -0.5 : 0;
+    }
+
+    this.props.onStarButtonPress(this.props.rating + addition);
   }
 
   render() {
-    const Icon = iconSets[this.props.iconSet];
-
     return (
       <Button
         activeOpacity={0.20}
@@ -55,14 +61,26 @@ class StarButton extends Component {
           width: this.props.starSize,
         }}
       >
+        {this.renderIcon()}
+      </Button>
+    );
+  }
+
+  renderIcon() {
+    const Icon = iconSets[this.props.iconSet];
+
+    if (typeof this.props.starIconName === 'string') {
+      return (
         <Icon
           name={this.props.starIconName}
           size={this.props.starSize}
           color={this.props.starColor}
           style={this.props.starStyle}
         />
-      </Button>
-    );
+      );
+    }
+
+    return this.props.starIconName;
   }
 }
 
@@ -72,10 +90,11 @@ StarButton.propTypes = {
   onStarButtonPress: PropTypes.func,
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
-  starIconName: PropTypes.string,
+  starIconName: PropTypes.any,
   starColor: PropTypes.string,
   starStyle: View.propTypes.style,
   buttonStyle: View.propTypes.style,
+  acceptHalfStars: PropTypes.bool
 };
 
 export default StarButton;
