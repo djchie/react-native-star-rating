@@ -1,7 +1,7 @@
 // React and react native imports
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import { ViewPropTypes } from 'react-native';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -40,28 +40,11 @@ class StarButton extends Component {
     let addition = 0;
 
     if (this.props.acceptHalfStars) {
-        const firstHalf = eventData.nativeEvent.locationX < this.props.starSize / 2;
-        addition = firstHalf ? -0.5 : 0;
+      const firstHalf = eventData.nativeEvent.locationX < this.props.starSize / 2;
+      addition = firstHalf ? -0.5 : 0;
     }
 
     this.props.onStarButtonPress(this.props.rating + addition);
-  }
-
-  render() {
-    return (
-      <Button
-        activeOpacity={0.20}
-        disabled={this.props.disabled}
-        onPress={this.onButtonPress}
-        containerStyle={this.props.buttonStyle}
-        style={{
-          height: this.props.starSize,
-          width: this.props.starSize,
-        }}
-      >
-        {this.renderIcon()}
-      </Button>
-    );
   }
 
   renderIcon() {
@@ -80,6 +63,26 @@ class StarButton extends Component {
 
     return this.props.starIconName;
   }
+
+  render() {
+    const buttonStyle = {
+      height: this.props.starSize,
+      width: this.props.starSize,
+    };
+
+    return (
+      <Button
+        activeOpacity={0.20}
+        disabled={this.props.disabled}
+        onPress={this.onButtonPress}
+        containerStyle={this.props.buttonStyle}
+        style={buttonStyle}
+      >
+        {this.renderIcon()}
+      </Button>
+    );
+  }
+
 }
 
 StarButton.propTypes = {
