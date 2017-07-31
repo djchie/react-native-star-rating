@@ -33,7 +33,6 @@ class StarButton extends Component {
     super(props);
 
     this.onButtonPress = this.onButtonPress.bind(this);
-    this.renderIcon = this.renderIcon.bind(this);
   }
 
   onButtonPress(eventData) {
@@ -47,24 +46,8 @@ class StarButton extends Component {
     this.props.onStarButtonPress(this.props.rating + addition);
   }
 
-  renderIcon() {
-    const Icon = iconSets[this.props.iconSet];
-
-    if (typeof this.props.starIconName === 'string') {
-      return (
-        <Icon
-          name={this.props.starIconName}
-          size={this.props.starSize}
-          color={this.props.starColor}
-          style={this.props.starStyle}
-        />
-      );
-    }
-
-    return this.props.starIconName;
-  }
-
   render() {
+    const Icon = iconSets[this.props.iconSet];
     const buttonStyle = {
       height: this.props.starSize,
       width: this.props.starSize,
@@ -78,7 +61,12 @@ class StarButton extends Component {
         containerStyle={this.props.buttonStyle}
         style={buttonStyle}
       >
-        {this.renderIcon()}
+        <Icon
+          name={this.props.starIconName}
+          size={this.props.starSize}
+          color={this.props.starColor}
+          style={this.props.starStyle}
+        />
       </Button>
     );
   }
@@ -91,7 +79,7 @@ StarButton.propTypes = {
   onStarButtonPress: PropTypes.func,
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
-  starIconName: PropTypes.any,
+  starIconName: PropTypes.string,
   starColor: PropTypes.string,
   starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
