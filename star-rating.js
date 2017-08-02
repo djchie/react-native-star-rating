@@ -23,15 +23,15 @@ class StarRating extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      maxStars: this.props.maxStars,
-    };
-
     this.onStarButtonPress = this.onStarButtonPress.bind(this);
   }
 
   onStarButtonPress(rating) {
-    this.props.selectedStar(rating);
+    const {
+      selectedStar,
+    } = this.props;
+
+    selectedStar(rating);
   }
 
   round(number) {
@@ -52,7 +52,7 @@ class StarRating extends Component {
       starSize,
       starStyle,
       buttonStyle,
-      acceptHalfStars,
+      halfStarEnabled,
     } = this.props;
 
     // Round rating down to nearest .5 star
@@ -84,7 +84,7 @@ class StarRating extends Component {
           starColor={finalStarColor}
           starStyle={starStyle}
           buttonStyle={buttonStyle}
-          acceptHalfStars={acceptHalfStars}
+          halfStarEnabled={halfStarEnabled}
         />
       );
       starsLeft--;
@@ -112,7 +112,7 @@ StarRating.propTypes = {
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
-  acceptHalfStars: PropTypes.bool,
+  halfStarEnabled: PropTypes.bool,
 };
 
 StarRating.defaultProps = {
@@ -128,7 +128,7 @@ StarRating.defaultProps = {
   starSize: 40,
   starStyle: {},
   buttonStyle: {},
-  acceptHalfStars: false,
+  halfStarEnabled: false,
 };
 
 export default StarRating;

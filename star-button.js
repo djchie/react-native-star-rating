@@ -35,11 +35,11 @@ class StarButton extends Component {
     this.onButtonPress = this.onButtonPress.bind(this);
   }
 
-  onButtonPress(eventData) {
+  onButtonPress(event) {
     let addition = 0;
 
-    if (this.props.acceptHalfStars) {
-      const firstHalf = eventData.nativeEvent.locationX < this.props.starSize / 2;
+    if (this.props.halfStarEnabled) {
+      const firstHalf = event.nativeEvent.locationX < this.props.starSize / 2;
       addition = firstHalf ? -0.5 : 0;
     }
 
@@ -83,7 +83,7 @@ StarButton.propTypes = {
   starColor: PropTypes.string,
   starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
-  acceptHalfStars: PropTypes.bool,
+  halfStarEnabled: PropTypes.bool,
 };
 
 export default StarButton;
