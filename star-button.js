@@ -1,7 +1,12 @@
 // React and react native imports
-import React, { Component } from 'react';
+import React, {
+  Component,
+} from 'react';
+import {
+  ViewPropTypes,
+  Image,
+} from 'react-native';
 import PropTypes from 'prop-types';
-import { ViewPropTypes } from 'react-native';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -73,12 +78,10 @@ class StarButton extends Component {
         onPress={this.onButtonPress}
         containerStyle={buttonStyle}
       >
-        <Icon
-          name={starIconName}
-          size={starSize}
-          color={starColor}
-          style={starStyle}
-        />
+        { typeof starIconName ==='string'?
+          <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/> :
+          <Image source={starIconName} style={[{width:starSize,height:starSize,resizeMode:'contain'},starStyle]} />
+        }
       </Button>
     );
   }
@@ -91,9 +94,13 @@ StarButton.propTypes = {
   onStarButtonPress: PropTypes.func,
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
-  starIconName: PropTypes.string,
+  starIconName: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.number,
+  ]),
   starColor: PropTypes.string,
-  starStyle: ViewPropTypes.style,
+  starStyle: PropTypes.style,
   buttonStyle: ViewPropTypes.style,
   halfStarEnabled: PropTypes.bool,
 };

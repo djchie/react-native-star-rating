@@ -1,11 +1,12 @@
 // React and react native imports
+import React, {
+  Component,
+} from 'react';
 import {
   StyleSheet,
   View,
   ViewPropTypes,
 } from 'react-native';
-
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 // Local file imports
@@ -100,9 +101,21 @@ class StarRating extends Component {
 
 StarRating.propTypes = {
   disabled: PropTypes.bool,
-  emptyStar: PropTypes.any,
-  fullStar: PropTypes.any,
-  halfStar: PropTypes.any,
+  emptyStar: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.number,
+  ]),
+  fullStar: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.number,
+  ]),
+  halfStar: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+      PropTypes.number,
+  ]),
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
