@@ -41,8 +41,9 @@ And then set up [react-native-vector-icons](https://github.com/oblador/react-nat
 |**`starColor`**|`string`|Color of a filled star. |`No`|`black`|
 |**`emptyStarColor`**|`string`|Color of an empty star. |`No`|`gray`|
 |**`starSize`**|`number`|Size of the star. |`No`|`40`|
-| **`starStyle`**| `View.propTypes.style`| Style to apply to the star. | `No` |*{}*|
-|**`buttonStyle`**|`style`|Style of the button containing the star. |`No`|*None*|
+| **`starStyle`**| `ViewPropTypes.style`| Style to apply to the star. | `No` |*{}*|
+|**`buttonStyle`**|`ViewPropTypes.style`|Style of the button containing the star. |`No`|*{}*|
+|**`halfStarEnabled`**|`bool`|Can a user input half stars? |`No`|false|
 
 For the `emptyStar`, `fullStar`, `halfStar`, and `iconSet` props, please refer to the [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) package for the valid `string` names for the star icons. When selecting the icon `string` names, you must remember to remove the font family name before the first hyphen. For example, if you want to use the `ion-ios-star` from the Ionicon font set, you would set the `fullStar` prop to `ios-star` and the `iconSet` to `Ionicons`.
 

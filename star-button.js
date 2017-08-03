@@ -1,8 +1,12 @@
 // React and react native imports
 import React, {
-  Component
+  Component,
 } from 'react';
-import { View, ViewPropTypes, Image } from 'react-native';
+import {
+  ViewPropTypes,
+  Image,
+} from 'react-native';
+import PropTypes from 'prop-types';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -14,7 +18,7 @@ import IoniconsIcons from 'react-native-vector-icons/Ionicons';
 import MaterialIconsIcons from 'react-native-vector-icons/MaterialIcons';
 import OcticonsIcons from 'react-native-vector-icons/Octicons';
 import ZocialIcons from 'react-native-vector-icons/Zocial';
-import PropTypes from 'prop-types';
+import MaterialCommunityIconsIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const iconSets = {
   Entypo: EntypoIcons,
@@ -25,6 +29,7 @@ const iconSets = {
   MaterialIcons: MaterialIconsIcons,
   Octicons: OcticonsIcons,
   Zocial: ZocialIcons,
+  MaterialCommunityIcons: MaterialCommunityIconsIcons,
 };
 
 class StarButton extends Component {
@@ -35,31 +40,52 @@ class StarButton extends Component {
     this.onButtonPress = this.onButtonPress.bind(this);
   }
 
-  onButtonPress() {
-    this.props.onStarButtonPress(this.props.rating);
+  onButtonPress(event) {
+    const {
+      halfStarEnabled,
+      starSize,
+      rating,
+      onStarButtonPress,
+    } = this.props;
+
+    let addition = 0;
+
+    if (halfStarEnabled) {
+      const isHalfSelected = event.nativeEvent.locationX < starSize / 2;
+      addition = isHalfSelected ? -0.5 : 0;
+    }
+
+    onStarButtonPress(rating + addition);
   }
 
   render() {
-      const Icon = iconSets[this.props.iconSet];
-      const { starSize,starIconName,starColor,starStyle,buttonStyle,disabled } = this.props;
-      return (
-          <Button
-              activeOpacity={0.20}
-              disabled={disabled}
-              onPress={this.onButtonPress}
-              containerStyle={buttonStyle}
-              style={{
-                  height: starSize,
-                  width: starSize,
-              }}
-          >
-              { typeof starIconName ==='string'?
-                  <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/> :
-                  <Image source={starIconName} style={[{width:starSize,height:starSize,resizeMode:'contain'},starStyle]} />
-              }
-          </Button>
-      );
+    const {
+      iconSet,
+      disabled,
+      buttonStyle,
+      starIconName,
+      starSize,
+      starColor,
+      starStyle,
+    } = this.props;
+
+    const Icon = iconSets[iconSet];
+
+    return (
+      <Button
+        activeOpacity={0.20}
+        disabled={disabled}
+        onPress={this.onButtonPress}
+        containerStyle={buttonStyle}
+      >
+        { typeof starIconName ==='string'?
+          <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/> :
+          <Image source={starIconName} style={[{width:starSize,height:starSize,resizeMode:'contain'},starStyle]} />
+        }
+      </Button>
+    );
   }
+
 }
 
 StarButton.propTypes = {
@@ -74,8 +100,9 @@ StarButton.propTypes = {
       PropTypes.number,
   ]),
   starColor: PropTypes.string,
-  starStyle: ViewPropTypes.style,
+  starStyle: PropTypes.style,
   buttonStyle: ViewPropTypes.style,
+  halfStarEnabled: PropTypes.bool,
 };
 
 export default StarButton;

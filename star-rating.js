@@ -1,13 +1,14 @@
 // React and react native imports
-import {
-  StyleSheet,
-  View,ViewPropTypes,
-} from 'react-native';
-
 import React, {
   Component,
 } from 'react';
+import {
+  StyleSheet,
+  View,
+  ViewPropTypes,
+} from 'react-native';
 import PropTypes from 'prop-types';
+
 // Local file imports
 import StarButton from './star-button';
 
@@ -23,15 +24,15 @@ class StarRating extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      maxStars: this.props.maxStars,
-    };
-
     this.onStarButtonPress = this.onStarButtonPress.bind(this);
   }
 
   onStarButtonPress(rating) {
-    this.props.selectedStar(rating);
+    const {
+      selectedStar,
+    } = this.props;
+
+    selectedStar(rating);
   }
 
   round(number) {
@@ -39,35 +40,52 @@ class StarRating extends Component {
   }
 
   render() {
-    // Round rating down to nearest .5 star
-    let starsLeft = this.round(this.props.rating);
-    let starButtons = [];
+    const {
+      maxStars,
+      rating,
+      emptyStar,
+      emptyStarColor,
+      fullStar,
+      halfStar,
+      starColor,
+      disabled,
+      iconSet,
+      starSize,
+      starStyle,
+      buttonStyle,
+      halfStarEnabled,
+    } = this.props;
 
-    for (let i = 0; i < this.state.maxStars; i++) {
-      let starIconName = this.props.emptyStar;
-      let starColor = this.props.emptyStarColor;
+    // Round rating down to nearest .5 star
+    let starsLeft = this.round(rating);
+    const starButtons = [];
+
+    for (let i = 0; i < maxStars; i++) {
+      let starIconName = emptyStar;
+      let finalStarColor = emptyStarColor;
 
       if (starsLeft >= 1) {
-        starIconName = this.props.fullStar;
-        starColor = this.props.starColor;
+        starIconName = fullStar;
+        finalStarColor = starColor;
       } else if (starsLeft === 0.5) {
-        starIconName = this.props.halfStar;
-        starColor = this.props.starColor;
+        starIconName = halfStar;
+        finalStarColor = starColor;
       }
 
       starButtons.push(
         <StarButton
           activeOpacity={0.20}
-          disabled={this.props.disabled}
+          disabled={disabled}
           key={i}
           rating={i + 1}
           onStarButtonPress={this.onStarButtonPress}
-          iconSet={this.props.iconSet}
-          starSize={this.props.starSize}
+          iconSet={iconSet}
+          starSize={starSize}
           starIconName={starIconName}
-          starColor={starColor}
-          starStyle={this.props.starStyle}
-          buttonStyle={this.props.buttonStyle}
+          starColor={finalStarColor}
+          starStyle={starStyle}
+          buttonStyle={buttonStyle}
+          halfStarEnabled={halfStarEnabled}
         />
       );
       starsLeft--;
@@ -107,6 +125,7 @@ StarRating.propTypes = {
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
+  halfStarEnabled: PropTypes.bool,
 };
 
 StarRating.defaultProps = {
@@ -122,6 +141,7 @@ StarRating.defaultProps = {
   starSize: 40,
   starStyle: {},
   buttonStyle: {},
+  halfStarEnabled: false,
 };
 
 export default StarRating;
