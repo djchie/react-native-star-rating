@@ -36,36 +36,48 @@ class StarButton extends Component {
   }
 
   onButtonPress(event) {
+    const {
+      halfStarEnabled,
+      starSize,
+      rating,
+      onStarButtonPress,
+    } = this.props;
+
     let addition = 0;
 
-    if (this.props.halfStarEnabled) {
-      const firstHalf = event.nativeEvent.locationX < this.props.starSize / 2;
-      addition = firstHalf ? -0.5 : 0;
+    if (halfStarEnabled) {
+      const isHalfSelected = event.nativeEvent.locationX < starSize / 2;
+      addition = isHalfSelected ? -0.5 : 0;
     }
 
-    this.props.onStarButtonPress(this.props.rating + addition);
+    onStarButtonPress(rating + addition);
   }
 
   render() {
-    const Icon = iconSets[this.props.iconSet];
-    const buttonStyle = {
-      height: this.props.starSize,
-      width: this.props.starSize,
-    };
+    const {
+      iconSet,
+      disabled,
+      buttonStyle,
+      starIconName,
+      starSize,
+      starColor,
+      starStyle,
+    } = this.props;
+
+    const Icon = iconSets[iconSet];
 
     return (
       <Button
         activeOpacity={0.20}
-        disabled={this.props.disabled}
+        disabled={disabled}
         onPress={this.onButtonPress}
-        containerStyle={this.props.buttonStyle}
-        style={buttonStyle}
+        containerStyle={buttonStyle}
       >
         <Icon
-          name={this.props.starIconName}
-          size={this.props.starSize}
-          color={this.props.starColor}
-          style={this.props.starStyle}
+          name={starIconName}
+          size={starSize}
+          color={starColor}
+          style={starStyle}
         />
       </Button>
     );
