@@ -58,11 +58,9 @@ class StarButton extends Component {
     onStarButtonPress(rating + addition);
   }
 
-  render() {
+  renderIcon() {
     const {
       iconSet,
-      disabled,
-      buttonStyle,
       starIconName,
       starSize,
       starColor,
@@ -70,18 +68,54 @@ class StarButton extends Component {
     } = this.props;
 
     const Icon = iconSets[iconSet];
+    let iconElement;
+
+    if (typeof starIconName === 'string') {
+      iconElement = (
+        <Icon
+          name={starIconName}
+          size={starSize}
+          color={starColor}
+          style={starStyle}
+        />
+      );
+    } else {
+      const imageStyle = {
+        width: starSize,
+        height: starSize,
+        resizeMode: 'contain',
+      };
+
+      const iconStyles = [
+        imageStyle,
+        starStyle,
+      ];
+
+      iconElement = (
+        <Image
+          source={starIconName}
+          style={iconStyles}
+        />
+      );
+    }
+
+    return iconElement;
+  }
+
+  render() {
+    const {
+      disabled,
+      buttonStyle,
+    } = this.props;
 
     return (
       <Button
         activeOpacity={0.20}
         disabled={disabled}
-        onPress={this.onButtonPress}
         containerStyle={buttonStyle}
+        onPress={this.onButtonPress}
       >
-        { typeof starIconName ==='string'?
-          <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/> :
-          <Image source={starIconName} style={[{width:starSize,height:starSize,resizeMode:'contain'},starStyle]} />
-        }
+        {this.renderIcon()}
       </Button>
     );
   }
@@ -95,12 +129,12 @@ StarButton.propTypes = {
   iconSet: PropTypes.string,
   starSize: PropTypes.number,
   starIconName: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
   ]),
   starColor: PropTypes.string,
-  starStyle: PropTypes.style,
+  starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
   halfStarEnabled: PropTypes.bool,
 };

@@ -102,19 +102,19 @@ class StarRating extends Component {
 StarRating.propTypes = {
   disabled: PropTypes.bool,
   emptyStar: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
   ]),
   fullStar: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
   ]),
   halfStar: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object,
-      PropTypes.number,
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
   ]),
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
