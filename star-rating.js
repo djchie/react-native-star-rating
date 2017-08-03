@@ -14,8 +14,7 @@ import StarButton from './star-button';
 
 const styles = StyleSheet.create({
   starRatingContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: 'row'
   },
 });
 
