@@ -70,20 +70,20 @@ class StarButton extends Component {
     } = this.props;
 
     const Icon = iconSets[iconSet];
-
-    return (
-      <Button
-        activeOpacity={0.20}
-        disabled={disabled}
-        onPress={this.onButtonPress}
-        containerStyle={buttonStyle}
-      >
-        { typeof starIconName ==='string'?
-          <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/> :
-          <Image source={starIconName} style={[{width:starSize,height:starSize,resizeMode:'contain'},starStyle]} />
-        }
-      </Button>
-    );
+    if (typeof starIconName === 'string') {
+      return (
+        <Button
+          activeOpacity={0.20}
+          disabled={disabled}
+          onPress={this.onButtonPress}
+          containerStyle={buttonStyle}
+        >
+          <Icon name={starIconName} size={starSize} color={starColor} style={starStyle}/>
+        </Button>
+      );
+    } else {
+      return starIconName;
+    }
   }
 
 }
