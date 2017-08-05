@@ -3,7 +3,6 @@ import React, {
   Component,
 } from 'react';
 import {
-  StyleSheet,
   View,
   ViewPropTypes,
 } from 'react-native';
@@ -11,13 +10,6 @@ import PropTypes from 'prop-types';
 
 // Local file imports
 import StarButton from './star-button';
-
-const styles = StyleSheet.create({
-  starRatingContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-});
 
 class StarRating extends Component {
 
@@ -35,10 +27,6 @@ class StarRating extends Component {
     selectedStar(rating);
   }
 
-  round(number) {
-    return (Math.round(number * 2) / 2);
-  }
-
   render() {
     const {
       maxStars,
@@ -54,10 +42,16 @@ class StarRating extends Component {
       starStyle,
       buttonStyle,
       halfStarEnabled,
+      reversed,
     } = this.props;
 
+    const starRatingStyles = {
+      flexDirection: reversed ? 'row-reverse' : 'row',
+      justifyContent: 'space-between',
+    };
+
     // Round rating down to nearest .5 star
-    let starsLeft = this.round(rating);
+    let starsLeft = Math.round(rating * 2) / 2;
     const starButtons = [];
 
     for (let i = 0; i < maxStars; i++) {
@@ -72,7 +66,7 @@ class StarRating extends Component {
         finalStarColor = starColor;
       }
 
-      starButtons.push(
+      const starButtonElement = (
         <StarButton
           activeOpacity={0.20}
           disabled={disabled}
@@ -86,13 +80,16 @@ class StarRating extends Component {
           starStyle={starStyle}
           buttonStyle={buttonStyle}
           halfStarEnabled={halfStarEnabled}
+          reversed={reversed}
         />
       );
-      starsLeft--;
+
+      starButtons.push(starButtonElement);
+      starsLeft -= 1;
     }
 
     return (
-      <View style={styles.starRatingContainer}>
+      <View style={starRatingStyles}>
         {starButtons}
       </View>
     );
@@ -126,6 +123,7 @@ StarRating.propTypes = {
   starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
   halfStarEnabled: PropTypes.bool,
+  reversed: PropTypes.bool,
 };
 
 StarRating.defaultProps = {
@@ -136,12 +134,14 @@ StarRating.defaultProps = {
   iconSet: 'FontAwesome',
   maxStars: 5,
   rating: 0,
+  selectedStar: () => undefined,
   starColor: 'black',
   emptyStarColor: 'gray',
   starSize: 40,
   starStyle: {},
   buttonStyle: {},
   halfStarEnabled: false,
+  reversed: false,
 };
 
 export default StarRating;
