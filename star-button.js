@@ -153,4 +153,9 @@ StarButton.propTypes = {
   reversed: PropTypes.bool.isRequired,
 };
 
+StarButton.defaultProps = {
+  starStyle: {},
+  buttonStyle: {},
+};
+
 export default StarButton;
