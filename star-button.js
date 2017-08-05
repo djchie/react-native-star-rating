@@ -7,6 +7,7 @@ import {
   Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import update from 'react-addons-update';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -65,10 +66,22 @@ class StarButton extends Component {
       starSize,
       starColor,
       starStyle,
+      reversed,
     } = this.props;
 
     const Icon = iconSets[iconSet];
     let iconElement;
+
+    // To check if we need to reverse the star icon
+    const newStarStyle = update(starStyle, {
+      transform: {
+        $set: [
+          {
+            scaleX: reversed ? -1 : 1,
+          },
+        ],
+      },
+    });
 
     if (typeof starIconName === 'string') {
       iconElement = (
@@ -76,7 +89,7 @@ class StarButton extends Component {
           name={starIconName}
           size={starSize}
           color={starColor}
-          style={starStyle}
+          style={newStarStyle}
         />
       );
     } else {
@@ -88,7 +101,7 @@ class StarButton extends Component {
 
       const iconStyles = [
         imageStyle,
-        starStyle,
+        newStarStyle,
       ];
 
       iconElement = (
@@ -123,20 +136,26 @@ class StarButton extends Component {
 }
 
 StarButton.propTypes = {
-  disabled: PropTypes.bool,
-  rating: PropTypes.number,
-  onStarButtonPress: PropTypes.func,
-  iconSet: PropTypes.string,
-  starSize: PropTypes.number,
+  disabled: PropTypes.bool.isRequired,
+  rating: PropTypes.number.isRequired,
+  onStarButtonPress: PropTypes.func.isRequired,
+  iconSet: PropTypes.string.isRequired,
+  starSize: PropTypes.number.isRequired,
   starIconName: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
     PropTypes.number,
-  ]),
-  starColor: PropTypes.string,
+  ]).isRequired,
+  starColor: PropTypes.string.isRequired,
   starStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
-  halfStarEnabled: PropTypes.bool,
+  halfStarEnabled: PropTypes.bool.isRequired,
+  reversed: PropTypes.bool.isRequired,
+};
+
+StarButton.defaultProps = {
+  starStyle: {},
+  buttonStyle: {},
 };
 
 export default StarButton;

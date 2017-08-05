@@ -1,7 +1,18 @@
 {
-    "extends": "airbnb",
-    "installedESLint": true,
-    "plugins": [
-        "react"
-    ]
+  "extends": "airbnb",
+  "installedESLint": true,
+  "plugins": [
+      "react"
+  ],
+  "rules": {
+    "no-plusplus": [2, {
+      "allowForLoopAfterthoughts": true
+    }],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [
+        ".js",
+        ".jsx"
+      ]
+    }],
+  }
 }
