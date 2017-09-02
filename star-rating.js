@@ -43,11 +43,13 @@ class StarRating extends Component {
       buttonStyle,
       halfStarEnabled,
       reversed,
+      space,
+      containerStyle
     } = this.props;
 
     const starRatingStyles = {
       flexDirection: reversed ? 'row-reverse' : 'row',
-      justifyContent: 'space-between',
+      justifyContent: space ? 'space-between' : null,
     };
 
     // Round rating down to nearest .5 star
@@ -89,7 +91,7 @@ class StarRating extends Component {
     }
 
     return (
-      <View style={starRatingStyles}>
+      <View style={[starRatingStyles, containerStyle]}>
         {starButtons}
       </View>
     );
@@ -121,9 +123,11 @@ StarRating.propTypes = {
   emptyStarColor: PropTypes.string,
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
+  containerStyle: ViewPropTypes.style,
   buttonStyle: ViewPropTypes.style,
   halfStarEnabled: PropTypes.bool,
   reversed: PropTypes.bool,
+  space: PropTypes.bool,
 };
 
 StarRating.defaultProps = {
@@ -140,8 +144,10 @@ StarRating.defaultProps = {
   starSize: 40,
   starStyle: {},
   buttonStyle: {},
+  containerStyle: {},
   halfStarEnabled: false,
   reversed: false,
+  space: false
 };
 
 export default StarRating;
