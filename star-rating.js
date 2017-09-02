@@ -147,7 +147,7 @@ StarRating.defaultProps = {
   containerStyle: {},
   halfStarEnabled: false,
   reversed: false,
-  space: false
+  space: true
 };
 
 export default StarRating;
