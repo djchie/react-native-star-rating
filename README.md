@@ -47,6 +47,7 @@ And then set up [react-native-vector-icons](https://github.com/oblador/react-nat
 |**`halfStarEnabled`**|`bool`|Sets ability to select half stars |`No`|false|
 |**`reversed`**|`bool`|Renders stars from right to left |`No`|false|
 |**`space`**|`bool`|Adds spacing between the stars |`No`|true|
+|**`starPadding`**|`bool`|Adds padding (right) for each star |`No`|0|
 
 For the `emptyStar`, `fullStar`, `halfStar`, and `iconSet` props, please refer to the [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) package for the valid `string` names for the star icons. When selecting the icon `string` names, you must remember to remove the font family name before the first hyphen. For example, if you want to use the `ion-ios-star` from the Ionicon font set, you would set the `fullStar` prop to `ios-star` and the `iconSet` to `Ionicons`.
 
