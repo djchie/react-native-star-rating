@@ -44,7 +44,8 @@ class StarRating extends Component {
       halfStarEnabled,
       reversed,
       space,
-      containerStyle
+      containerStyle,
+      starPadding
     } = this.props;
 
     const starRatingStyles = {
@@ -79,7 +80,7 @@ class StarRating extends Component {
           starSize={starSize}
           starIconName={starIconName}
           starColor={finalStarColor}
-          starStyle={starStyle}
+          starStyle={[starStyle, { paddingRight: starPadding ? starPadding : null } ]}
           buttonStyle={buttonStyle}
           halfStarEnabled={halfStarEnabled}
           reversed={reversed}
@@ -128,6 +129,7 @@ StarRating.propTypes = {
   halfStarEnabled: PropTypes.bool,
   reversed: PropTypes.bool,
   space: PropTypes.bool,
+  starPadding: PropTypes.number
 };
 
 StarRating.defaultProps = {
@@ -147,7 +149,8 @@ StarRating.defaultProps = {
   containerStyle: {},
   halfStarEnabled: false,
   reversed: false,
-  space: true
+  space: true,
+  starPadding: 0
 };
 
 export default StarRating;
