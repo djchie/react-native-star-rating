@@ -29,6 +29,7 @@ class StarRating extends Component {
 
   render() {
     const {
+      style,
       maxStars,
       rating,
       emptyStar,
@@ -45,10 +46,13 @@ class StarRating extends Component {
       reversed,
     } = this.props;
 
-    const starRatingStyles = {
-      flexDirection: reversed ? 'row-reverse' : 'row',
-      justifyContent: 'space-between',
-    };
+    const starRatingStyles = [
+      {
+        flexDirection: reversed ? 'row-reverse' : 'row',
+        justifyContent: 'space-between',
+      },
+      style,
+    ];
 
     // Round rating down to nearest .5 star
     let starsLeft = Math.round(rating * 2) / 2;
@@ -97,6 +101,7 @@ class StarRating extends Component {
 }
 
 StarRating.propTypes = {
+  style: ViewPropTypes.style,
   disabled: PropTypes.bool,
   emptyStar: PropTypes.oneOfType([
     PropTypes.string,
@@ -127,6 +132,7 @@ StarRating.propTypes = {
 };
 
 StarRating.defaultProps = {
+  style: {},
   disabled: false,
   emptyStar: 'star-o',
   fullStar: 'star',
