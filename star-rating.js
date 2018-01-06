@@ -38,6 +38,7 @@ class StarRating extends Component {
       starColor,
       disabled,
       iconSet,
+      icoMoonJson,
       starSize,
       starStyle,
       buttonStyle,
@@ -74,6 +75,7 @@ class StarRating extends Component {
           rating={i + 1}
           onStarButtonPress={this.onStarButtonPress}
           iconSet={iconSet}
+          icoMoonJson={icoMoonJson}
           starSize={starSize}
           starIconName={starIconName}
           starColor={finalStarColor}
@@ -114,6 +116,7 @@ StarRating.propTypes = {
     PropTypes.number,
   ]),
   iconSet: PropTypes.string,
+  icoMoonJson: PropTypes.object,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
   selectedStar: PropTypes.func,

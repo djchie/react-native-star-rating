@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import update from 'react-addons-update';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -61,7 +62,6 @@ class StarButton extends Component {
 
   renderIcon() {
     const {
-      iconSet,
       starIconName,
       starSize,
       starColor,
@@ -69,7 +69,7 @@ class StarButton extends Component {
       reversed,
     } = this.props;
 
-    const Icon = iconSets[iconSet];
+    const Icon = this.iconSetFromProps();
     let iconElement;
 
     // To check if we need to reverse the star icon
@@ -115,6 +115,19 @@ class StarButton extends Component {
     return iconElement;
   }
 
+  iconSetFromProps() {
+    const {
+      iconSet,
+      icoMoonJson
+    } = this.props;
+    if (icoMoonJson) {
+      return createIconSetFromIcoMoon(icoMoonJson);
+
+    } else {
+      return iconSets[iconSet];
+    }
+  }
+
   render() {
     const {
       disabled,
@@ -140,6 +153,7 @@ StarButton.propTypes = {
   rating: PropTypes.number.isRequired,
   onStarButtonPress: PropTypes.func.isRequired,
   iconSet: PropTypes.string.isRequired,
+  icoMoonJson: PropTypes.string,
   starSize: PropTypes.number.isRequired,
   starIconName: PropTypes.oneOfType([
     PropTypes.string,
