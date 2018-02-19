@@ -13,6 +13,7 @@ import StarButton from './StarButton';
 
 const propTypes = {
   buttonStyle: ViewPropTypes.style,
+  containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
   emptyStar: PropTypes.oneOfType([
     PropTypes.string,
@@ -43,6 +44,7 @@ const propTypes = {
 
 const defaultProps = {
   buttonStyle: {},
+  containerStyle: {},
   disabled: false,
   emptyStar: 'star-o',
   emptyStarColor: 'gray',
@@ -76,6 +78,7 @@ class StarRating extends Component {
   render() {
     const {
       buttonStyle,
+      containerStyle,
       disabled,
       emptyStar,
       emptyStarColor,
@@ -91,13 +94,11 @@ class StarRating extends Component {
       starStyle,
     } = this.props;
 
-    const starRatingStyles = [
-      {
-        flexDirection: reversed ? 'row-reverse' : 'row',
-        justifyContent: 'space-between',
-      },
-      style,
-    ];
+    const newContainerStyle = {
+      flexDirection: reversed ? 'row-reverse' : 'row',
+      justifyContent: 'space-between',
+      ...containerStyle,
+    };
 
     // Round rating down to nearest .5 star
     let starsLeft = Math.round(rating * 2) / 2;
@@ -138,7 +139,7 @@ class StarRating extends Component {
     }
 
     return (
-      <View style={starRatingStyles}>
+      <View style={newContainerStyle}>
         {starButtons}
       </View>
     );

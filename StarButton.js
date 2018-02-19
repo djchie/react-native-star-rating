@@ -3,12 +3,11 @@ import React, {
   Component,
 } from 'react';
 import {
-  ViewPropTypes,
-  StyleSheet,
   Image,
+  StyleSheet,
+  ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import update from 'immutability-helper';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -96,16 +95,14 @@ class StarButton extends Component {
     const Icon = iconSets[iconSet];
     let iconElement;
 
-    // To check if we need to reverse the star icon
-    const newStarStyle = update(StyleSheet.flatten(starStyle), {
-      transform: {
-        $set: [
-          {
-            scaleX: reversed ? -1 : 1,
-          },
-        ],
-      },
-    });
+    const newStarStyle = {
+      transform: [{
+        scaleX: reversed ? -1 : 1,
+      }],
+      // Flattening because of:
+      // https://github.com/djchie/react-native-star-rating/issues/56
+      ...StyleSheet.flatten(starStyle),
+    };
 
     if (typeof starIconName === 'string') {
       iconElement = (
