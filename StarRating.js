@@ -1,11 +1,6 @@
 // React and react native imports
-import React, {
-  Component,
-} from 'react';
-import {
-  View,
-  ViewPropTypes,
-} from 'react-native';
+import React, { Component } from 'react';
+import { View, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Local file imports
@@ -62,7 +57,6 @@ const defaultProps = {
 };
 
 class StarRating extends Component {
-
   constructor(props) {
     super(props);
 

@@ -1,11 +1,11 @@
 {
   "name": "react-native-star-rating",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A React Native component for generating and displaying interactive star ratings",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint **.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js",
+    "test": "jest",
     "pre-publish": "npm run lint && npm run test",
     "clean-modules": "rm -rf node_modules"
   },
@@ -26,9 +26,12 @@
   ],
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
+  "jest": {
+    "preset": "react-native"
+  },
   "dependencies": {
     "prop-types": "^15.5.10",
-    "react-native-button": "^2.1.0",
+    "react-native-button": "^2.3.0",
     "react-native-vector-icons": "^4.5.0"
   },
   "repository": {
@@ -40,10 +43,14 @@
   },
   "homepage": "https://github.com/djchie/react-native-star-rating",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.10.3"
+    "eslint": "^4.18.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
+    "jest": "^22.3.0",
+    "react": "16.2.0",
+    "react-native": "0.52.0",
+    "react-test-renderer": "16.2.0"
   }
 }

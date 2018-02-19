@@ -1,12 +1,6 @@
 // React and react native imports
-import React, {
-  Component,
-} from 'react';
-import {
-  Image,
-  StyleSheet,
-  ViewPropTypes,
-} from 'react-native';
+import React, { Component } from 'react';
+import { Image, StyleSheet, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Third party imports
@@ -61,7 +55,6 @@ const defaultProps = {
 };
 
 class StarButton extends Component {
-
   constructor(props) {
     super(props);
 
