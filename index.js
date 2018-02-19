@@ -1,4 +1,4 @@
 // Local file imports
-import StarRating from './star-rating';
+import StarRating from './StarRating';
 
 export default StarRating;

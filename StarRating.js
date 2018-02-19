@@ -9,7 +9,55 @@ import {
 import PropTypes from 'prop-types';
 
 // Local file imports
-import StarButton from './star-button';
+import StarButton from './StarButton';
+
+const propTypes = {
+  buttonStyle: ViewPropTypes.style,
+  disabled: PropTypes.bool,
+  emptyStar: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
+  ]),
+  emptyStarColor: PropTypes.string,
+  fullStar: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
+  ]),
+  halfStarEnabled: PropTypes.bool,
+  halfStar: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
+  ]),
+  iconSet: PropTypes.string,
+  maxStars: PropTypes.number,
+  rating: PropTypes.number,
+  reversed: PropTypes.bool,
+  selectedStar: PropTypes.func,
+  starColor: PropTypes.string,
+  starSize: PropTypes.number,
+  starStyle: ViewPropTypes.style,
+};
+
+const defaultProps = {
+  buttonStyle: {},
+  disabled: false,
+  emptyStar: 'star-o',
+  emptyStarColor: 'gray',
+  fullStar: 'star',
+  halfStar: 'star-half-o',
+  halfStarEnabled: false,
+  iconSet: 'FontAwesome',
+  maxStars: 5,
+  rating: 0,
+  reversed: false,
+  selectedStar: () => undefined,
+  starColor: 'black',
+  starSize: 40,
+  starStyle: {},
+};
 
 class StarRating extends Component {
 
@@ -20,30 +68,27 @@ class StarRating extends Component {
   }
 
   onStarButtonPress(rating) {
-    const {
-      selectedStar,
-    } = this.props;
+    const { selectedStar } = this.props;
 
     selectedStar(rating);
   }
 
   render() {
     const {
-      style,
-      maxStars,
-      rating,
+      buttonStyle,
+      disabled,
       emptyStar,
       emptyStarColor,
       fullStar,
       halfStar,
-      starColor,
-      disabled,
+      halfStarEnabled,
       iconSet,
+      maxStars,
+      rating,
+      reversed,
+      starColor,
       starSize,
       starStyle,
-      buttonStyle,
-      halfStarEnabled,
-      reversed,
     } = this.props;
 
     const starRatingStyles = [
@@ -73,18 +118,18 @@ class StarRating extends Component {
       const starButtonElement = (
         <StarButton
           activeOpacity={0.20}
-          disabled={disabled}
-          key={i}
-          rating={i + 1}
-          onStarButtonPress={this.onStarButtonPress}
-          iconSet={iconSet}
-          starSize={starSize}
-          starIconName={starIconName}
-          starColor={finalStarColor}
-          starStyle={starStyle}
           buttonStyle={buttonStyle}
+          disabled={disabled}
           halfStarEnabled={halfStarEnabled}
+          iconSet={iconSet}
+          key={i}
+          onStarButtonPress={this.onStarButtonPress}
+          rating={i + 1}
           reversed={reversed}
+          starColor={finalStarColor}
+          starIconName={starIconName}
+          starSize={starSize}
+          starStyle={starStyle}
         />
       );
 
@@ -100,54 +145,7 @@ class StarRating extends Component {
   }
 }
 
-StarRating.propTypes = {
-  style: ViewPropTypes.style,
-  disabled: PropTypes.bool,
-  emptyStar: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.number,
-  ]),
-  fullStar: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.number,
-  ]),
-  halfStar: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.number,
-  ]),
-  iconSet: PropTypes.string,
-  maxStars: PropTypes.number,
-  rating: PropTypes.number,
-  selectedStar: PropTypes.func,
-  starColor: PropTypes.string,
-  emptyStarColor: PropTypes.string,
-  starSize: PropTypes.number,
-  starStyle: ViewPropTypes.style,
-  buttonStyle: ViewPropTypes.style,
-  halfStarEnabled: PropTypes.bool,
-  reversed: PropTypes.bool,
-};
-
-StarRating.defaultProps = {
-  style: {},
-  disabled: false,
-  emptyStar: 'star-o',
-  fullStar: 'star',
-  halfStar: 'star-half-o',
-  iconSet: 'FontAwesome',
-  maxStars: 5,
-  rating: 0,
-  selectedStar: () => undefined,
-  starColor: 'black',
-  emptyStarColor: 'gray',
-  starSize: 40,
-  starStyle: {},
-  buttonStyle: {},
-  halfStarEnabled: false,
-  reversed: false,
-};
+StarRating.propTypes = propTypes;
+StarRating.defaultProps = defaultProps;
 
 export default StarRating;

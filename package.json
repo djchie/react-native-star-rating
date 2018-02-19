@@ -27,8 +27,8 @@
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
   "dependencies": {
+    "immutability-helper": "^2.6.5",
     "prop-types": "^15.5.10",
-    "react-addons-update": "^15.6.0",
     "react-native-button": "^2.1.0",
     "react-native-vector-icons": "^4.2.0"
   },

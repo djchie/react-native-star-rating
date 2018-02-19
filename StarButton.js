@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import update from 'react-addons-update';
+import update from 'immutability-helper';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -32,6 +32,29 @@ const iconSets = {
   Octicons: OcticonsIcons,
   Zocial: ZocialIcons,
   MaterialCommunityIcons: MaterialCommunityIconsIcons,
+};
+
+const propTypes = {
+  buttonStyle: ViewPropTypes.style,
+  disabled: PropTypes.bool.isRequired,
+  halfStarEnabled: PropTypes.bool.isRequired,
+  iconSet: PropTypes.string.isRequired,
+  onStarButtonPress: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
+  reversed: PropTypes.bool.isRequired,
+  starColor: PropTypes.string.isRequired,
+  starIconName: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
+  ]).isRequired,
+  starSize: PropTypes.number.isRequired,
+  starStyle: ViewPropTypes.style,
+};
+
+const defaultProps = {
+  buttonStyle: {},
+  starStyle: {},
 };
 
 class StarButton extends Component {
@@ -133,30 +156,9 @@ class StarButton extends Component {
       </Button>
     );
   }
-
 }
 
-StarButton.propTypes = {
-  disabled: PropTypes.bool.isRequired,
-  rating: PropTypes.number.isRequired,
-  onStarButtonPress: PropTypes.func.isRequired,
-  iconSet: PropTypes.string.isRequired,
-  starSize: PropTypes.number.isRequired,
-  starIconName: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-    PropTypes.number,
-  ]).isRequired,
-  starColor: PropTypes.string.isRequired,
-  starStyle: ViewPropTypes.style,
-  buttonStyle: ViewPropTypes.style,
-  halfStarEnabled: PropTypes.bool.isRequired,
-  reversed: PropTypes.bool.isRequired,
-};
-
-StarButton.defaultProps = {
-  starStyle: {},
-  buttonStyle: {},
-};
+StarButton.propTypes = propTypes;
+StarButton.defaultProps = defaultProps;
 
 export default StarButton;
