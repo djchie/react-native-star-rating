@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import {
   ViewPropTypes,
+  StyleSheet,
   Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
@@ -73,7 +74,7 @@ class StarButton extends Component {
     let iconElement;
 
     // To check if we need to reverse the star icon
-    const newStarStyle = update(starStyle, {
+    const newStarStyle = update(StyleSheet.flatten(starStyle), {
       transform: {
         $set: [
           {
