@@ -149,7 +149,7 @@ Run the app on the iOS simulator.
 npm run ios
 ```
 
-## Development Setup
+## Development Setup (WIP)
 
 Be sure to have `create-react-native-app` installed.
 
@@ -163,10 +163,16 @@ Create a development app in the root folder.
 create-react-native-app DevelopmentApp
 ```
 
-Going into the development app and install the dependencies.
+Going into the development app and clone this repo.
 
 ```sh
-cd DevelopmentApp && npm install
+cd DevelopmentApp && git clone https://github.com/djchie/react-native-star-rating.git
+```
+
+Go into the `react-native-star-rating` directory and start developing!
+
+```sh
+cd react-native-star-rating
 ```
 
 ## Roadmap
