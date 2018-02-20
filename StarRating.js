@@ -21,18 +21,19 @@ const propTypes = {
     PropTypes.object,
     PropTypes.number,
   ]),
-  halfStarEnabled: PropTypes.bool,
+  fullStarColor: PropTypes.string,
   halfStar: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
     PropTypes.number,
   ]),
+  halfStarColor: PropTypes.string,
+  halfStarEnabled: PropTypes.bool,
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
   reversed: PropTypes.bool,
   selectedStar: PropTypes.func,
-  starColor: PropTypes.string,
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
 };
@@ -44,14 +45,15 @@ const defaultProps = {
   emptyStar: 'star-o',
   emptyStarColor: 'gray',
   fullStar: 'star',
+  fullStarColor: 'black',
   halfStar: 'star-half-o',
+  halfStarColor: undefined,
   halfStarEnabled: false,
   iconSet: 'FontAwesome',
   maxStars: 5,
   rating: 0,
   reversed: false,
-  selectedStar: () => undefined,
-  starColor: 'black',
+  selectedStar: () => {},
   starSize: 40,
   starStyle: {},
 };
@@ -77,13 +79,14 @@ class StarRating extends Component {
       emptyStar,
       emptyStarColor,
       fullStar,
+      fullStarColor,
       halfStar,
+      halfStarColor,
       halfStarEnabled,
       iconSet,
       maxStars,
       rating,
       reversed,
-      starColor,
       starSize,
       starStyle,
     } = this.props;
@@ -104,10 +107,14 @@ class StarRating extends Component {
 
       if (starsLeft >= 1) {
         starIconName = fullStar;
-        finalStarColor = starColor;
+        finalStarColor = fullStarColor;
       } else if (starsLeft === 0.5) {
         starIconName = halfStar;
-        finalStarColor = starColor;
+        if (halfStarColor) {
+          finalStarColor = halfStarColor;
+        } else {
+          finalStarColor = fullStarColor;
+        }
       }
 
       const starButtonElement = (

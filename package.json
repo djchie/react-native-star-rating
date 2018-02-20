@@ -49,8 +49,6 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
     "jest": "^22.3.0",
-    "react": "16.2.0",
-    "react-native": "0.52.0",
     "react-test-renderer": "16.2.0"
   }
 }

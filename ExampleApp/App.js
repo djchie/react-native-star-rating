@@ -1,38 +1,9 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
 import StarRating from 'react-native-star-rating';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-class Example extends Component {
-
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -69,6 +40,8 @@ class Example extends Component {
           disabled={false}
           maxStars={5}
           rating={this.state.generalStarCount}
+          reversed
+          starSize={50}
           selectedStar={(rating) => this.onGeneralStarRatingPress(rating)}
         />
         <Text style={styles.welcome}>
@@ -88,10 +61,33 @@ class Example extends Component {
           selectedStar={(rating) => this.onCustomStarRatingPress(rating)}
           starColor={'red'}
           emptyStarColor={'blue'}
+          halfStarEnabled
+          starPadding={10}
         />
       </View>
     );
   }
 }
 
-AppRegistry.registerComponent('Example', () => Example);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  star: {
+    paddingHorizontal: 6,
+    opacity: 0,
+  }
+});
