@@ -9,6 +9,7 @@ export default class App extends Component {
     this.state = {
       generalStarCount: 3.5,
       customStarCount: 2.5,
+      customTwoStarCount: 2.5,
     };
   }
 
@@ -21,6 +22,12 @@ export default class App extends Component {
   onCustomStarRatingPress(rating) {
     this.setState({
       customStarCount: rating,
+    });
+  }
+
+  onCustomTwoStarRatingPress(rating) {
+    this.setState({
+      customTwoStarCount: rating,
     });
   }
 
@@ -59,7 +66,8 @@ export default class App extends Component {
           maxStars={7}
           rating={this.state.customStarCount}
           selectedStar={(rating) => this.onCustomStarRatingPress(rating)}
-          starColor={'red'}
+          fullStarColor={'red'}
+          halfStarColor={'green'}
           emptyStarColor={'blue'}
           halfStarEnabled
           starPadding={10}

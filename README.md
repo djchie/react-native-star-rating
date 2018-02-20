@@ -135,7 +135,27 @@ export default CustomStarExample
   <img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/custom-star-demo.gif" alt="Custom Star Example" width="336" height="600"/>
 </p>
 
-### Development Setup
+## Running the ExampleApp
+
+Navigate to the root of the ExampleApp and install the dependencies
+
+```sh
+cd ExampleApp && npm install
+```
+
+Run the app on the iOS simulator.
+
+```sh
+npm run ios
+```
+
+## Development Setup
+
+Be sure to have `create-react-native-app` installed.
+
+```sh
+npm install -g create-react-native-app
+```
 
 Create a development app in the root folder.
 
@@ -149,7 +169,7 @@ Going into the development app and install the dependencies.
 cd DevelopmentApp && npm install
 ```
 
-### Roadmap
+## Roadmap
 
 View the project roadmap [here](https://github.com/djchie/react-native-star-rating/issues)
 
