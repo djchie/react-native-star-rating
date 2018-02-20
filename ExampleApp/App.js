@@ -9,7 +9,6 @@ export default class App extends Component {
     this.state = {
       generalStarCount: 3.5,
       customStarCount: 2.5,
-      customTwoStarCount: 2.5,
     };
   }
 
@@ -22,12 +21,6 @@ export default class App extends Component {
   onCustomStarRatingPress(rating) {
     this.setState({
       customStarCount: rating,
-    });
-  }
-
-  onCustomTwoStarRatingPress(rating) {
-    this.setState({
-      customTwoStarCount: rating,
     });
   }
 
@@ -49,7 +42,7 @@ export default class App extends Component {
           rating={this.state.generalStarCount}
           reversed
           starSize={50}
-          selectedStar={(rating) => this.onGeneralStarRatingPress(rating)}
+          selectedStar={rating => this.onGeneralStarRatingPress(rating)}
         />
         <Text style={styles.welcome}>
           General Star Demo
@@ -59,16 +52,16 @@ export default class App extends Component {
         </Text>
         <StarRating
           disabled={false}
-          emptyStar={'ios-star-outline'}
-          fullStar={'ios-star'}
-          halfStar={'ios-star-half'}
-          iconSet={'Ionicons'}
+          emptyStar="ios-star-outline"
+          fullStar="ios-star"
+          halfStar="ios-star-half"
+          iconSet="Ionicons"
           maxStars={7}
           rating={this.state.customStarCount}
-          selectedStar={(rating) => this.onCustomStarRatingPress(rating)}
-          fullStarColor={'red'}
-          halfStarColor={'green'}
-          emptyStarColor={'blue'}
+          selectedStar={rating => this.onCustomStarRatingPress(rating)}
+          fullStarColor="red"
+          halfStarColor="green"
+          emptyStarColor="blue"
           halfStarEnabled
           starPadding={10}
         />
@@ -97,5 +90,5 @@ const styles = StyleSheet.create({
   star: {
     paddingHorizontal: 6,
     opacity: 0,
-  }
+  },
 });
