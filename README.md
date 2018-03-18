@@ -21,7 +21,9 @@
 1. install react-native-star-rating and its dependeices
 ```sh
 npm install react-native-star-rating --save
+```
 or
+```sh
 yarn add react-native-star-rating
 ```
 2. link `react-native-vector-icons`   
