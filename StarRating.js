@@ -89,6 +89,7 @@ class StarRating extends Component {
       reversed,
       starSize,
       starStyle,
+      accessibilityLabel,
     } = this.props;
 
     const newContainerStyle = {
@@ -132,6 +133,7 @@ class StarRating extends Component {
           starIconName={starIconName}
           starSize={starSize}
           starStyle={starStyle}
+          accessibilityLabel={accessibilityLabel + '_' + i}
         />
       );
 
