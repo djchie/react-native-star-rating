@@ -2,11 +2,13 @@
 import React, { Component } from 'react';
 import { View, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
+import { View as AnimatableView } from 'react-native-animatable';
 
 // Local file imports
 import StarButton from './StarButton';
 
 const propTypes = {
+  animationEnabled: PropTypes.bool,
   buttonStyle: ViewPropTypes.style,
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
@@ -39,6 +41,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  animationEnabled: false,
   buttonStyle: {},
   containerStyle: {},
   disabled: false,
@@ -62,6 +65,7 @@ class StarRating extends Component {
   constructor(props) {
     super(props);
 
+    this.starRef = [];
     this.onStarButtonPress = this.onStarButtonPress.bind(this);
   }
 
@@ -73,6 +77,7 @@ class StarRating extends Component {
 
   render() {
     const {
+      animationEnabled,
       buttonStyle,
       containerStyle,
       disabled,
@@ -118,21 +123,32 @@ class StarRating extends Component {
       }
 
       const starButtonElement = (
-        <StarButton
-          activeOpacity={0.20}
-          buttonStyle={buttonStyle}
-          disabled={disabled}
-          halfStarEnabled={halfStarEnabled}
-          iconSet={iconSet}
+        <AnimatableView
           key={i}
-          onStarButtonPress={this.onStarButtonPress}
-          rating={i + 1}
-          reversed={reversed}
-          starColor={finalStarColor}
-          starIconName={starIconName}
-          starSize={starSize}
-          starStyle={starStyle}
-        />
+          ref={(node) => { this.starRef.push(node); }}
+        >
+          <StarButton
+            activeOpacity={0.20}
+            buttonStyle={buttonStyle}
+            disabled={disabled}
+            halfStarEnabled={halfStarEnabled}
+            iconSet={iconSet}
+            onStarButtonPress={(event) => {
+              if (animationEnabled) {
+                for (let s = 0; s <= i; s++) {
+                  this.starRef[s].rubberBand(1000 + (s * 200));
+                }
+              }
+              this.onStarButtonPress(event);
+            }}
+            rating={i + 1}
+            reversed={reversed}
+            starColor={finalStarColor}
+            starIconName={starIconName}
+            starSize={starSize}
+            starStyle={starStyle}
+          />
+        </AnimatableView>
       );
 
       starButtons.push(starButtonElement);

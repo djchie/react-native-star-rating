@@ -28,6 +28,7 @@ npm install react-native-star-rating --save
 
 |Prop|Type|Description|Required|Default|
 |---|---|---|---|---|
+|**`animationEnabled`**|`bool`|Add a bouncing animation to the star|`No`|`false`|
 |**`buttonStyle`**|`ViewPropTypes.style`|Style of the button containing the star.|`No`|*`{}`*|
 |**`containerStyle`**|`ViewPropTypes.style`|Style of the element containing the star rating component.|`No`|*`{}`*|
 |**`disabled`**|`bool`|Sets the interactivity of the star buttons. |`No`|`false`|
