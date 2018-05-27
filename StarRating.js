@@ -1,6 +1,6 @@
 // React and react native imports
 import React, { Component } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import { View, ViewPropTypes, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 // Local file imports
@@ -94,7 +94,7 @@ class StarRating extends Component {
     const newContainerStyle = {
       flexDirection: reversed ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
-      ...containerStyle,
+      ...StyleSheet.flatten(containerStyle),
     };
 
     // Round rating down to nearest .5 star
