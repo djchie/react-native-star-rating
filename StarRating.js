@@ -140,7 +140,7 @@ class StarRating extends Component {
     }
 
     return (
-      <View style={newContainerStyle}>
+      <View style={newContainerStyle} pointerEvents={disabled ? 'none' : 'auto'}>
         {starButtons}
       </View>
     );
