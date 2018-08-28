@@ -35,6 +35,7 @@ please refer to [react-native-vector-icons installation guide](https://github.co
 
 |Prop|Type|Description|Required|Default|
 |---|---|---|---|---|
+|**`activeOpacity`**|`number`|Number between 0 a 1 to determine the opacity of the button.|`No`|`0.2`|
 |**`buttonStyle`**|`ViewPropTypes.style`|Style of the button containing the star.|`No`|*`{}`*|
 |**`containerStyle`**|`ViewPropTypes.style`|Style of the element containing the star rating component.|`No`|*`{}`*|
 |**`disabled`**|`bool`|Sets the interactivity of the star buttons. |`No`|`false`|

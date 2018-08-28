@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import StarButton from './StarButton';
 
 const propTypes = {
+  activeOpacity: PropTypes.number,
   buttonStyle: ViewPropTypes.style,
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
@@ -39,6 +40,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  activeOpacity: 0.2,
   buttonStyle: {},
   containerStyle: {},
   disabled: false,
@@ -73,6 +75,7 @@ class StarRating extends Component {
 
   render() {
     const {
+      activeOpacity,
       buttonStyle,
       containerStyle,
       disabled,
@@ -119,7 +122,7 @@ class StarRating extends Component {
 
       const starButtonElement = (
         <StarButton
-          activeOpacity={0.20}
+          activeOpacity={activeOpacity}
           buttonStyle={buttonStyle}
           disabled={disabled}
           halfStarEnabled={halfStarEnabled}
