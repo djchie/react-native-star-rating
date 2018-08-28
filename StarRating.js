@@ -1,6 +1,6 @@
 // React and react native imports
 import React, { Component } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import { View, ViewPropTypes, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { View as AnimatableView } from 'react-native-animatable';
 
@@ -8,6 +8,7 @@ import { View as AnimatableView } from 'react-native-animatable';
 import StarButton from './StarButton';
 
 const propTypes = {
+  activeOpacity: PropTypes.number,
   animationEnabled: PropTypes.bool,
   buttonStyle: ViewPropTypes.style,
   containerStyle: ViewPropTypes.style,
@@ -41,6 +42,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  activeOpacity: 0.2,
   animationEnabled: false,
   buttonStyle: {},
   containerStyle: {},
@@ -77,6 +79,7 @@ class StarRating extends Component {
 
   render() {
     const {
+      activeOpacity,
       animationEnabled,
       buttonStyle,
       containerStyle,
@@ -99,7 +102,7 @@ class StarRating extends Component {
     const newContainerStyle = {
       flexDirection: reversed ? 'row-reverse' : 'row',
       justifyContent: 'space-between',
-      ...containerStyle,
+      ...StyleSheet.flatten(containerStyle),
     };
 
     // Round rating down to nearest .5 star
@@ -128,7 +131,7 @@ class StarRating extends Component {
           ref={(node) => { this.starRef.push(node); }}
         >
           <StarButton
-            activeOpacity={0.20}
+            activeOpacity={activeOpacity}
             buttonStyle={buttonStyle}
             disabled={disabled}
             halfStarEnabled={halfStarEnabled}

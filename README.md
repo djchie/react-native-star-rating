@@ -18,9 +18,16 @@
 
 ## Installation
 
+1. install react-native-star-rating and its dependeices
 ```sh
 npm install react-native-star-rating --save
 ```
+or
+```sh
+yarn add react-native-star-rating
+```
+2. link `react-native-vector-icons`   
+please refer to [react-native-vector-icons installation guide](https://github.com/oblador/react-native-vector-icons#installation)
 
 ## Usage
 
@@ -28,6 +35,7 @@ npm install react-native-star-rating --save
 
 |Prop|Type|Description|Required|Default|
 |---|---|---|---|---|
+|**`activeOpacity`**|`number`|Number between 0 a 1 to determine the opacity of the button.|`No`|`0.2`|
 |**`animationEnabled`**|`bool`|Add a bouncing animation to the star|`No`|`false`|
 |**`buttonStyle`**|`ViewPropTypes.style`|Style of the button containing the star.|`No`|*`{}`*|
 |**`containerStyle`**|`ViewPropTypes.style`|Style of the element containing the star rating component.|`No`|*`{}`*|
