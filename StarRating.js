@@ -32,6 +32,7 @@ const propTypes = {
   ]),
   halfStarColor: PropTypes.string,
   halfStarEnabled: PropTypes.bool,
+  icoMoonJson: PropTypes.object,
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
@@ -91,6 +92,7 @@ class StarRating extends Component {
       halfStar,
       halfStarColor,
       halfStarEnabled,
+      icoMoonJson,
       iconSet,
       maxStars,
       rating,
@@ -135,6 +137,7 @@ class StarRating extends Component {
             buttonStyle={buttonStyle}
             disabled={disabled}
             halfStarEnabled={halfStarEnabled}
+            icoMoonJson={icoMoonJson}
             iconSet={iconSet}
             onStarButtonPress={(event) => {
               if (animationEnabled) {

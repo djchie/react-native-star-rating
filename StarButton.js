@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Image, StyleSheet, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
+import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 
 // Third party imports
 import Button from 'react-native-button';
@@ -35,6 +36,7 @@ const propTypes = {
   buttonStyle: ViewPropTypes.style,
   disabled: PropTypes.bool.isRequired,
   halfStarEnabled: PropTypes.bool.isRequired,
+  icoMoonJson: PropTypes.string,
   iconSet: PropTypes.string.isRequired,
   onStarButtonPress: PropTypes.func.isRequired,
   rating: PropTypes.number.isRequired,
@@ -82,7 +84,6 @@ class StarButton extends Component {
 
   renderIcon() {
     const {
-      iconSet,
       starIconName,
       starSize,
       starColor,
@@ -90,7 +91,7 @@ class StarButton extends Component {
       reversed,
     } = this.props;
 
-    const Icon = iconSets[iconSet];
+    const Icon = this.iconSetFromProps();
     let iconElement;
 
     const newStarStyle = {
@@ -132,6 +133,19 @@ class StarButton extends Component {
     }
 
     return iconElement;
+  }
+
+  iconSetFromProps() {
+    const {
+      iconSet,
+      icoMoonJson
+    } = this.props;
+    if (icoMoonJson) {
+      return createIconSetFromIcoMoon(icoMoonJson);
+
+    } else {
+      return iconSets[iconSet];
+    }
   }
 
   render() {
