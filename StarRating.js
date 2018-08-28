@@ -2,12 +2,14 @@
 import React, { Component } from 'react';
 import { View, ViewPropTypes, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import { View as AnimatableView } from 'react-native-animatable';
 
 // Local file imports
 import StarButton from './StarButton';
 
 const propTypes = {
   activeOpacity: PropTypes.number,
+  animationEnabled: PropTypes.bool,
   buttonStyle: ViewPropTypes.style,
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
@@ -41,6 +43,7 @@ const propTypes = {
 
 const defaultProps = {
   activeOpacity: 0.2,
+  animationEnabled: false,
   buttonStyle: {},
   containerStyle: {},
   disabled: false,
@@ -64,6 +67,7 @@ class StarRating extends Component {
   constructor(props) {
     super(props);
 
+    this.starRef = [];
     this.onStarButtonPress = this.onStarButtonPress.bind(this);
   }
 
@@ -76,6 +80,7 @@ class StarRating extends Component {
   render() {
     const {
       activeOpacity,
+      animationEnabled,
       buttonStyle,
       containerStyle,
       disabled,
@@ -121,21 +126,32 @@ class StarRating extends Component {
       }
 
       const starButtonElement = (
-        <StarButton
-          activeOpacity={activeOpacity}
-          buttonStyle={buttonStyle}
-          disabled={disabled}
-          halfStarEnabled={halfStarEnabled}
-          iconSet={iconSet}
+        <AnimatableView
           key={i}
-          onStarButtonPress={this.onStarButtonPress}
-          rating={i + 1}
-          reversed={reversed}
-          starColor={finalStarColor}
-          starIconName={starIconName}
-          starSize={starSize}
-          starStyle={starStyle}
-        />
+          ref={(node) => { this.starRef.push(node); }}
+        >
+          <StarButton
+            activeOpacity={activeOpacity}
+            buttonStyle={buttonStyle}
+            disabled={disabled}
+            halfStarEnabled={halfStarEnabled}
+            iconSet={iconSet}
+            onStarButtonPress={(event) => {
+              if (animationEnabled) {
+                for (let s = 0; s <= i; s++) {
+                  this.starRef[s].rubberBand(1000 + (s * 200));
+                }
+              }
+              this.onStarButtonPress(event);
+            }}
+            rating={i + 1}
+            reversed={reversed}
+            starColor={finalStarColor}
+            starIconName={starIconName}
+            starSize={starSize}
+            starStyle={starStyle}
+          />
+        </AnimatableView>
       );
 
       starButtons.push(starButtonElement);
