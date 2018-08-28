@@ -137,6 +137,7 @@ class StarButton extends Component {
     const {
       disabled,
       buttonStyle,
+      accessibilityLabel,
     } = this.props;
 
     return (
@@ -145,6 +146,7 @@ class StarButton extends Component {
         disabled={disabled}
         containerStyle={buttonStyle}
         onPress={this.onButtonPress}
+        accessibilityLabel={accessibilityLabel}
       >
         {this.renderIcon()}
       </Button>
