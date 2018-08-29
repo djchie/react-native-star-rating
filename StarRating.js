@@ -45,14 +45,15 @@ const propTypes = {
   ]),
   halfStarColor: PropTypes.string,
   halfStarEnabled: PropTypes.bool,
+  // eslint-disable-next-line react/forbid-prop-types
   icoMoonJson: PropTypes.object,
   iconSet: PropTypes.string,
   maxStars: PropTypes.number,
   rating: PropTypes.number,
   reversed: PropTypes.bool,
-  selectedStar: PropTypes.func,
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
+  selectedStar: PropTypes.func,
 };
 
 const defaultProps = {
@@ -68,13 +69,14 @@ const defaultProps = {
   halfStar: 'star-half-o',
   halfStarColor: undefined,
   halfStarEnabled: false,
+  icoMoonJson: undefined,
   iconSet: 'FontAwesome',
   maxStars: 5,
   rating: 0,
   reversed: false,
-  selectedStar: () => {},
   starSize: 40,
   starStyle: {},
+  selectedStar: () => {},
 };
 
 class StarRating extends Component {

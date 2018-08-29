@@ -38,7 +38,6 @@ const propTypes = {
   halfStarEnabled: PropTypes.bool.isRequired,
   icoMoonJson: PropTypes.string,
   iconSet: PropTypes.string.isRequired,
-  onStarButtonPress: PropTypes.func.isRequired,
   rating: PropTypes.number.isRequired,
   reversed: PropTypes.bool.isRequired,
   starColor: PropTypes.string.isRequired,
@@ -50,10 +49,12 @@ const propTypes = {
   starSize: PropTypes.number.isRequired,
   activeOpacity: PropTypes.number.isRequired,
   starStyle: ViewPropTypes.style,
+  onStarButtonPress: PropTypes.func.isRequired,
 };
 
 const defaultProps = {
   buttonStyle: {},
+  icoMoonJson: undefined,
   starStyle: {},
 };
 
@@ -82,13 +83,25 @@ class StarButton extends Component {
     onStarButtonPress(rating + addition);
   }
 
+  iconSetFromProps() {
+    const {
+      icoMoonJson,
+      iconSet,
+    } = this.props;
+    if (icoMoonJson) {
+      return createIconSetFromIcoMoon(icoMoonJson);
+    }
+
+    return iconSets[iconSet];
+  }
+
   renderIcon() {
     const {
+      reversed,
+      starColor,
       starIconName,
       starSize,
-      starColor,
       starStyle,
-      reversed,
     } = this.props;
 
     const Icon = this.iconSetFromProps();
@@ -133,24 +146,11 @@ class StarButton extends Component {
     return iconElement;
   }
 
-  iconSetFromProps() {
-    const {
-      iconSet,
-      icoMoonJson
-    } = this.props;
-    if (icoMoonJson) {
-      return createIconSetFromIcoMoon(icoMoonJson);
-
-    } else {
-      return iconSets[iconSet];
-    }
-  }
-
   render() {
     const {
-      disabled,
+      activeOpacity,
       buttonStyle,
-      activeOpacity
+      disabled,
     } = this.props;
 
     return (
