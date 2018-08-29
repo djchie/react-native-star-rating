@@ -2,6 +2,10 @@ language: node_js
 node_js:
   - "10"
 sudo: false
+install:
+  - npm install
+  - npm install react@16.3.1
+  - npm install react-native@0.55.4
 script:
   - npm run lint
-  - npm run tests
+  - npm run test

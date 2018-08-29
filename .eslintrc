@@ -14,5 +14,8 @@
       ]
     }],
     "import/no-extraneous-dependencies": 0
+  },
+  "env": {
+    "jest": true
   }
 }
