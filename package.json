@@ -27,7 +27,8 @@
   "author": "Derrick Chie <djchie.dev@gmail.com> (https://github.com/djchie)",
   "license": "ISC",
   "jest": {
-    "preset": "react-native"
+    "preset": "react-native",
+    "testPathIgnorePatterns": ["/node_modules/", "/ExampleApp"]
   },
   "dependencies": {
     "prop-types": "^15.5.10",
