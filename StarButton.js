@@ -98,8 +98,6 @@ class StarButton extends Component {
       transform: [{
         scaleX: reversed ? -1 : 1,
       }],
-      // Flattening because of:
-      // https://github.com/djchie/react-native-star-rating/issues/56
       ...StyleSheet.flatten(starStyle),
     };
 

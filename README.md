@@ -36,7 +36,7 @@ please refer to [react-native-vector-icons installation guide](https://github.co
 |Prop|Type|Description|Required|Default|
 |---|---|---|---|---|
 |**`activeOpacity`**|`number`|Number between 0 a 1 to determine the opacity of the button.|`No`|`0.2`|
-|**`animationEnabled`**|`bool`|Add a bouncing animation to the star|`No`|`false`|
+|**`animation`**|`string`|Add an animation to the stars when upon selection. Refer to [react-native-animatable](https://github.com/oblador/react-native-animatable) for the different animation types.|`No`|`undefined`|
 |**`buttonStyle`**|`ViewPropTypes.style`|Style of the button containing the star.|`No`|*`{}`*|
 |**`containerStyle`**|`ViewPropTypes.style`|Style of the element containing the star rating component.|`No`|*`{}`*|
 |**`disabled`**|`bool`|Sets the interactivity of the star buttons. |`No`|`false`|

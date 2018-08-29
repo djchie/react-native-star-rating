@@ -7,9 +7,22 @@ import { View as AnimatableView } from 'react-native-animatable';
 // Local file imports
 import StarButton from './StarButton';
 
+const ANIMATION_TYPES = [
+  'bounce',
+  'flash',
+  'jello',
+  'pulse',
+  'rotate',
+  'rubberBand',
+  'shake',
+  'swing',
+  'tada',
+  'wobble',
+];
+
 const propTypes = {
   activeOpacity: PropTypes.number,
-  animationEnabled: PropTypes.bool,
+  animation: PropTypes.oneOf(ANIMATION_TYPES),
   buttonStyle: ViewPropTypes.style,
   containerStyle: ViewPropTypes.style,
   disabled: PropTypes.bool,
@@ -44,7 +57,7 @@ const propTypes = {
 
 const defaultProps = {
   activeOpacity: 0.2,
-  animationEnabled: false,
+  animation: undefined,
   buttonStyle: {},
   containerStyle: {},
   disabled: false,
@@ -81,7 +94,7 @@ class StarRating extends Component {
   render() {
     const {
       activeOpacity,
-      animationEnabled,
+      animation,
       buttonStyle,
       containerStyle,
       disabled,
@@ -140,9 +153,9 @@ class StarRating extends Component {
             icoMoonJson={icoMoonJson}
             iconSet={iconSet}
             onStarButtonPress={(event) => {
-              if (animationEnabled) {
+              if (animation && ANIMATION_TYPES.includes(animation)) {
                 for (let s = 0; s <= i; s++) {
-                  this.starRef[s].rubberBand(1000 + (s * 200));
+                  this.starRef[s][animation](1000 + (s * 200));
                 }
               }
               this.onStarButtonPress(event);
