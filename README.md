@@ -146,7 +146,7 @@ export default CustomStarExample
   <img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/custom-star-demo.gif" alt="Custom Star Example" width="336" height="600"/>
 </p>
 
-## Running the ExampleApp
+## Running the ExampleApp (WIP)
 
 Navigate to the root of the ExampleApp and install the dependencies
 
