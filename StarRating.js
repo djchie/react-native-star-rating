@@ -21,6 +21,7 @@ const ANIMATION_TYPES = [
 ];
 
 const propTypes = {
+  testID: PropTypes.string,
   activeOpacity: PropTypes.number,
   animation: PropTypes.oneOf(ANIMATION_TYPES),
   buttonStyle: ViewPropTypes.style,
@@ -57,6 +58,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  testID: undefined,
   activeOpacity: 0.2,
   animation: undefined,
   buttonStyle: {},
@@ -95,6 +97,7 @@ class StarRating extends Component {
 
   render() {
     const {
+      testID,
       activeOpacity,
       animation,
       buttonStyle,
@@ -145,9 +148,11 @@ class StarRating extends Component {
       const starButtonElement = (
         <AnimatableView
           key={i}
+          test
           ref={(node) => { this.starRef.push(node); }}
         >
           <StarButton
+            testID={`${testID}-${i}`}
             activeOpacity={activeOpacity}
             buttonStyle={buttonStyle}
             disabled={disabled}
@@ -177,7 +182,7 @@ class StarRating extends Component {
     }
 
     return (
-      <View style={newContainerStyle} pointerEvents={disabled ? 'none' : 'auto'}>
+      <View style={newContainerStyle} pointerEvents={disabled ? 'none' : 'auto'} testID={testID}>
         {starButtons}
       </View>
     );

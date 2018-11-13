@@ -33,6 +33,7 @@ const iconSets = {
 };
 
 const propTypes = {
+  testID: ViewPropTypes.testID,
   buttonStyle: ViewPropTypes.style,
   disabled: PropTypes.bool.isRequired,
   halfStarEnabled: PropTypes.bool.isRequired,
@@ -97,6 +98,7 @@ class StarButton extends Component {
 
   renderIcon() {
     const {
+      testID,
       reversed,
       starColor,
       starIconName,
@@ -117,6 +119,7 @@ class StarButton extends Component {
     if (typeof starIconName === 'string') {
       iconElement = (
         <Icon
+          testID={testID}
           name={starIconName}
           size={starSize}
           color={starColor}
@@ -137,6 +140,7 @@ class StarButton extends Component {
 
       iconElement = (
         <Image
+          testID={testID}
           source={starIconName}
           style={iconStyles}
         />
