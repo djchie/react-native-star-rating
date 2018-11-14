@@ -35,6 +35,7 @@ please refer to [react-native-vector-icons installation guide](https://github.co
 
 |Prop|Type|Description|Required|Default|
 |---|---|---|---|---|
+|**`testID`**|`string`|A unique identifier for this element to be used in UI Automation testing scripts. Each star can be accessed depending on its index. For example: `star-0`.|`No`|`undefined`|
 |**`activeOpacity`**|`number`|Number between 0 a 1 to determine the opacity of the button.|`No`|`0.2`|
 |**`animation`**|`string`|Add an animation to the stars when upon selection. Refer to [react-native-animatable](https://github.com/oblador/react-native-animatable) for the different animation types.|`No`|`undefined`|
 |**`buttonStyle`**|`ViewPropTypes.style`|Style of the button containing the star.|`No`|*`{}`*|
