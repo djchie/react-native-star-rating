@@ -128,6 +128,7 @@ class StarButton extends Component {
         width: starSize,
         height: starSize,
         resizeMode: 'contain',
+        tintColor: starColor,
       };
 
       const iconStyles = [
