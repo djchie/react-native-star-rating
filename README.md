@@ -127,19 +127,19 @@ class CustomStarExample extends Component {
   render() {
     return (
         <StarRating
-					activeOpacity={0.6}
-          disabled={false}
-          maxStars={5}
-          rating={this.state.starCount}
-					selectedStar={(rating) => this.onStarRatingPress(rating)}
-					buttonStyle={styles.ratingButton}
-					fullStarColor={'white'}
-					emptyStarColor={'white'}
-					emptyStar={'meh-o'}
-					fullStar={'meh-o'}
-					starSize = {20}
-					fullStarBackgroundColor={'#FFC64B'}
-					emptyStarBackgroundColor={'#EBEBEB'}
+		activeOpacity={0.6}
+          	disabled={false}
+          	maxStars={5}
+          	rating={this.state.starCount}
+		selectedStar={(rating) => this.onStarRatingPress(rating)}
+		buttonStyle={styles.ratingButton}
+		fullStarColor={'white'}
+		emptyStarColor={'white'}
+		emptyStar={'meh-o'}
+		fullStar={'meh-o'}
+		starSize = {20}
+		fullStarBackgroundColor={'#FFC64B'}
+		emptyStarBackgroundColor={'#EBEBEB'}
         />
     );
   }
