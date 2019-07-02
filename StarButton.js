@@ -10,6 +10,8 @@ import EntypoIcons from 'react-native-vector-icons/Entypo';
 import EvilIconsIcons from 'react-native-vector-icons/EvilIcons';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5Icons from 'react-native-vector-icons/FontAwesome5';
+import FontAwesome5proIcons from 'react-native-vector-icons/FontAwesome5pro';
 import FoundationIcons from 'react-native-vector-icons/Foundation';
 import IoniconsIcons from 'react-native-vector-icons/Ionicons';
 import MaterialIconsIcons from 'react-native-vector-icons/MaterialIcons';
@@ -23,6 +25,8 @@ const iconSets = {
   EvilIcons: EvilIconsIcons,
   Feather: FeatherIcons,
   FontAwesome: FontAwesomeIcons,
+  FontAwesome5: FontAwesome5Icons,
+  FontAwesome5pro: FontAwesome5proIcons,
   Foundation: FoundationIcons,
   Ionicons: IoniconsIcons,
   MaterialIcons: MaterialIconsIcons,

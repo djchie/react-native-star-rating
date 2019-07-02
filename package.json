@@ -36,10 +36,11 @@
     ]
   },
   "dependencies": {
+    "6.6.0": "^1.0.1",
     "prop-types": "^15.5.10",
     "react-native-animatable": "^1.2.4",
     "react-native-button": "^2.3.0",
-    "react-native-vector-icons": "^4.5.0"
+    "react-native-vector-icons": "^4.6.0"
   },
   "repository": {
     "type": "git",
