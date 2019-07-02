@@ -100,7 +100,57 @@ export default GeneralStarExample
   <img src="https://github.com/djchie/react-native-star-rating/blob/master/assets/general-star-demo.gif" alt="General Star Example" width="336" height="600"/>
 </p>
 
-### Custom Star Case
+### Custom Star Case 1
+The following example could change star button background color by your select.
+<p align="center">
+  <img width="243" alt="image" src="https://user-images.githubusercontent.com/6138872/60478353-06e20480-9cb5-11e9-8fd4-330fdd47c5a6.png">
+</p>
+
+```js
+import StarRating from 'react-native-star-rating';
+
+class CustomStarExample extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      starCount: 3
+    };
+  }
+
+  onStarRatingPress(rating) {
+    this.setState({
+      starCount: rating
+    });
+  }
+
+  render() {
+    return (
+        <StarRating
+					activeOpacity={0.6}
+          disabled={false}
+          maxStars={5}
+          rating={this.state.starCount}
+					selectedStar={(rating) => this.onStarRatingPress(rating)}
+					buttonStyle={styles.ratingButton}
+					fullStarColor={'white'}
+					emptyStarColor={'white'}
+					emptyStar={'meh-o'}
+					fullStar={'meh-o'}
+					starSize = {20}
+					fullStarBackgroundColor={'#FFC64B'}
+					emptyStarBackgroundColor={'#EBEBEB'}
+        />
+    );
+  }
+}
+
+export default CustomStarExample
+```
+
+
+
+### Custom Star Case 2
 
 The following example will render 2.5 stars out of 7 stars using the `ios-star-outline` for the empty star icon, `ios-star-half` for the half star icon, and `ios-star` for the full star icon from the `Ionicons` icon set in red color.
 
