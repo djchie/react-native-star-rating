@@ -103,7 +103,7 @@ export default GeneralStarExample
 ### Custom Star Case 1
 The following example could change star button background color by your select.
 <p align="center">
-  <img width="243" alt="image" src="https://user-images.githubusercontent.com/6138872/60478353-06e20480-9cb5-11e9-8fd4-330fdd47c5a6.png">
+  <img width="409" alt="image" src="https://user-images.githubusercontent.com/6138872/60478520-87a10080-9cb5-11e9-8989-8871862761dc.png">
 </p>
 
 ```js
