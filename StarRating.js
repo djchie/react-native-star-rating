@@ -64,8 +64,10 @@ const defaultProps = {
   disabled: false,
   emptyStar: 'star-o',
   emptyStarColor: 'gray',
+  emptyStarBackgroundColor:'#00000000',
   fullStar: 'star',
   fullStarColor: 'black',
+  fullStarBackgroundColor:'#00000000',
   halfStar: 'star-half-o',
   halfStarColor: undefined,
   halfStarEnabled: false,
@@ -102,8 +104,10 @@ class StarRating extends Component {
       disabled,
       emptyStar,
       emptyStarColor,
+      emptyStarBackgroundColor,
       fullStar,
       fullStarColor,
+      fullStarBackgroundColor,
       halfStar,
       halfStarColor,
       halfStarEnabled,
@@ -129,17 +133,24 @@ class StarRating extends Component {
     for (let i = 0; i < maxStars; i++) {
       let starIconName = emptyStar;
       let finalStarColor = emptyStarColor;
+      let finalBackgroundColor = '#00000000'
 
       if (starsLeft >= 1) {
         starIconName = fullStar;
         finalStarColor = fullStarColor;
+        finalBackgroundColor = fullStarBackgroundColor
       } else if (starsLeft === 0.5) {
         starIconName = halfStar;
         if (halfStarColor) {
           finalStarColor = halfStarColor;
+          finalBackgroundColor = emptyStarBackgroundColor;
         } else {
           finalStarColor = fullStarColor;
+          finalBackgroundColor = emptyStarBackgroundColor;
         }
+      }
+      else {
+        finalBackgroundColor = emptyStarBackgroundColor;
       }
 
       const starButtonElement = (
@@ -149,7 +160,7 @@ class StarRating extends Component {
         >
           <StarButton
             activeOpacity={activeOpacity}
-            buttonStyle={buttonStyle}
+            buttonStyle={[buttonStyle, {backgroundColor:finalBackgroundColor}]}
             disabled={disabled}
             halfStarEnabled={halfStarEnabled}
             icoMoonJson={icoMoonJson}
