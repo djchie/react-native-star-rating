@@ -17,6 +17,7 @@ import MaterialCommunityIconsIcons from 'react-native-vector-icons/MaterialCommu
 import OcticonsIcons from 'react-native-vector-icons/Octicons';
 import ZocialIcons from 'react-native-vector-icons/Zocial';
 import SimpleLineIconsIcons from 'react-native-vector-icons/SimpleLineIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const iconSets = {
   Entypo: EntypoIcons,
@@ -30,6 +31,7 @@ const iconSets = {
   Octicons: OcticonsIcons,
   Zocial: ZocialIcons,
   SimpleLineIcons: SimpleLineIconsIcons,
+  AntDesign: AntDesign,
 };
 
 const propTypes = {
