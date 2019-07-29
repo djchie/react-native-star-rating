@@ -1,6 +1,6 @@
 // React and react native imports
 import React, { Component } from 'react';
-import { Image, StyleSheet, ViewPropTypes } from 'react-native';
+import { Image, StyleSheet, ViewPropTypes, I18nManager } from 'react-native';
 import PropTypes from 'prop-types';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
 
@@ -110,6 +110,8 @@ class StarButton extends Component {
     const newStarStyle = {
       transform: [{
         scaleX: reversed ? -1 : 1,
+      },{
+        rotateY: I18nManager.isRTL ? '180deg' : '0deg'
       }],
       ...StyleSheet.flatten(starStyle),
     };
