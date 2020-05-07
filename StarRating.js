@@ -1,23 +1,23 @@
 // React and react native imports
-import React, { Component } from 'react';
-import { View, ViewPropTypes, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
-import { View as AnimatableView } from 'react-native-animatable';
+import React, { Component } from "react";
+import { View, ViewPropTypes, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
+import { View as AnimatableView } from "react-native-animatable";
 
 // Local file imports
-import StarButton from './StarButton';
+import StarButton from "./StarButton";
 
 const ANIMATION_TYPES = [
-  'bounce',
-  'flash',
-  'jello',
-  'pulse',
-  'rotate',
-  'rubberBand',
-  'shake',
-  'swing',
-  'tada',
-  'wobble',
+  "bounce",
+  "flash",
+  "jello",
+  "pulse",
+  "rotate",
+  "rubberBand",
+  "shake",
+  "swing",
+  "tada",
+  "wobble"
 ];
 
 const propTypes = {
@@ -29,19 +29,19 @@ const propTypes = {
   emptyStar: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
-    PropTypes.number,
+    PropTypes.number
   ]),
   emptyStarColor: PropTypes.string,
   fullStar: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
-    PropTypes.number,
+    PropTypes.number
   ]),
   fullStarColor: PropTypes.string,
   halfStar: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
-    PropTypes.number,
+    PropTypes.number
   ]),
   halfStarColor: PropTypes.string,
   halfStarEnabled: PropTypes.bool,
@@ -54,6 +54,7 @@ const propTypes = {
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
   selectedStar: PropTypes.func,
+  testID: PropTypes.string
 };
 
 const defaultProps = {
@@ -62,21 +63,22 @@ const defaultProps = {
   buttonStyle: {},
   containerStyle: {},
   disabled: false,
-  emptyStar: 'star-o',
-  emptyStarColor: 'gray',
-  fullStar: 'star',
-  fullStarColor: 'black',
-  halfStar: 'star-half-o',
+  emptyStar: "star-o",
+  emptyStarColor: "gray",
+  fullStar: "star",
+  fullStarColor: "black",
+  halfStar: "star-half-o",
   halfStarColor: undefined,
   halfStarEnabled: false,
   icoMoonJson: undefined,
-  iconSet: 'FontAwesome',
+  iconSet: "FontAwesome",
   maxStars: 5,
   rating: 0,
   reversed: false,
   starSize: 40,
   starStyle: {},
   selectedStar: () => {},
+  testID: "star_rating"
 };
 
 class StarRating extends Component {
@@ -114,12 +116,13 @@ class StarRating extends Component {
       reversed,
       starSize,
       starStyle,
+      testID
     } = this.props;
 
     const newContainerStyle = {
-      flexDirection: reversed ? 'row-reverse' : 'row',
-      justifyContent: 'space-between',
-      ...StyleSheet.flatten(containerStyle),
+      flexDirection: reversed ? "row-reverse" : "row",
+      justifyContent: "space-between",
+      ...StyleSheet.flatten(containerStyle)
     };
 
     // Round rating down to nearest .5 star
@@ -145,7 +148,9 @@ class StarRating extends Component {
       const starButtonElement = (
         <AnimatableView
           key={i}
-          ref={(node) => { this.starRef.push(node); }}
+          ref={node => {
+            this.starRef.push(node);
+          }}
         >
           <StarButton
             activeOpacity={activeOpacity}
@@ -154,10 +159,10 @@ class StarRating extends Component {
             halfStarEnabled={halfStarEnabled}
             icoMoonJson={icoMoonJson}
             iconSet={iconSet}
-            onStarButtonPress={(event) => {
+            onStarButtonPress={event => {
               if (animation && ANIMATION_TYPES.includes(animation)) {
                 for (let s = 0; s <= i; s++) {
-                  this.starRef[s][animation](1000 + (s * 200));
+                  this.starRef[s][animation](1000 + s * 200);
                 }
               }
               this.onStarButtonPress(event);
@@ -168,6 +173,7 @@ class StarRating extends Component {
             starIconName={starIconName}
             starSize={starSize}
             starStyle={starStyle}
+            testID={testID + "_" + i}
           />
         </AnimatableView>
       );
@@ -177,7 +183,11 @@ class StarRating extends Component {
     }
 
     return (
-      <View style={newContainerStyle} pointerEvents={disabled ? 'none' : 'auto'}>
+      <View
+        style={newContainerStyle}
+        pointerEvents={disabled ? "none" : "auto"}
+        testID={testID}
+      >
         {starButtons}
       </View>
     );

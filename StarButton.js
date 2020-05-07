@@ -1,22 +1,22 @@
 // React and react native imports
-import React, { Component } from 'react';
-import { Image, StyleSheet, ViewPropTypes } from 'react-native';
-import PropTypes from 'prop-types';
-import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
+import React, { Component } from "react";
+import { Image, StyleSheet, ViewPropTypes } from "react-native";
+import PropTypes from "prop-types";
+import { createIconSetFromIcoMoon } from "react-native-vector-icons";
 
 // Third party imports
-import Button from 'react-native-button';
-import EntypoIcons from 'react-native-vector-icons/Entypo';
-import EvilIconsIcons from 'react-native-vector-icons/EvilIcons';
-import FeatherIcons from 'react-native-vector-icons/Feather';
-import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
-import FoundationIcons from 'react-native-vector-icons/Foundation';
-import IoniconsIcons from 'react-native-vector-icons/Ionicons';
-import MaterialIconsIcons from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIconsIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import OcticonsIcons from 'react-native-vector-icons/Octicons';
-import ZocialIcons from 'react-native-vector-icons/Zocial';
-import SimpleLineIconsIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Button from "react-native-button";
+import EntypoIcons from "react-native-vector-icons/Entypo";
+import EvilIconsIcons from "react-native-vector-icons/EvilIcons";
+import FeatherIcons from "react-native-vector-icons/Feather";
+import FontAwesomeIcons from "react-native-vector-icons/FontAwesome";
+import FoundationIcons from "react-native-vector-icons/Foundation";
+import IoniconsIcons from "react-native-vector-icons/Ionicons";
+import MaterialIconsIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialCommunityIconsIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import OcticonsIcons from "react-native-vector-icons/Octicons";
+import ZocialIcons from "react-native-vector-icons/Zocial";
+import SimpleLineIconsIcons from "react-native-vector-icons/SimpleLineIcons";
 
 const iconSets = {
   Entypo: EntypoIcons,
@@ -29,7 +29,7 @@ const iconSets = {
   MaterialCommunityIcons: MaterialCommunityIconsIcons,
   Octicons: OcticonsIcons,
   Zocial: ZocialIcons,
-  SimpleLineIcons: SimpleLineIconsIcons,
+  SimpleLineIcons: SimpleLineIconsIcons
 };
 
 const propTypes = {
@@ -44,18 +44,19 @@ const propTypes = {
   starIconName: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
-    PropTypes.number,
+    PropTypes.number
   ]).isRequired,
   starSize: PropTypes.number.isRequired,
   activeOpacity: PropTypes.number.isRequired,
   starStyle: ViewPropTypes.style,
   onStarButtonPress: PropTypes.func.isRequired,
+  testID: PropTypes.string
 };
 
 const defaultProps = {
   buttonStyle: {},
   icoMoonJson: undefined,
-  starStyle: {},
+  starStyle: {}
 };
 
 class StarButton extends Component {
@@ -66,12 +67,7 @@ class StarButton extends Component {
   }
 
   onButtonPress(event) {
-    const {
-      halfStarEnabled,
-      starSize,
-      rating,
-      onStarButtonPress,
-    } = this.props;
+    const { halfStarEnabled, starSize, rating, onStarButtonPress } = this.props;
 
     let addition = 0;
 
@@ -84,10 +80,7 @@ class StarButton extends Component {
   }
 
   iconSetFromProps() {
-    const {
-      icoMoonJson,
-      iconSet,
-    } = this.props;
+    const { icoMoonJson, iconSet } = this.props;
     if (icoMoonJson) {
       return createIconSetFromIcoMoon(icoMoonJson);
     }
@@ -101,20 +94,22 @@ class StarButton extends Component {
       starColor,
       starIconName,
       starSize,
-      starStyle,
+      starStyle
     } = this.props;
 
     const Icon = this.iconSetFromProps();
     let iconElement;
 
     const newStarStyle = {
-      transform: [{
-        scaleX: reversed ? -1 : 1,
-      }],
-      ...StyleSheet.flatten(starStyle),
+      transform: [
+        {
+          scaleX: reversed ? -1 : 1
+        }
+      ],
+      ...StyleSheet.flatten(starStyle)
     };
 
-    if (typeof starIconName === 'string') {
+    if (typeof starIconName === "string") {
       iconElement = (
         <Icon
           name={starIconName}
@@ -127,34 +122,23 @@ class StarButton extends Component {
       const imageStyle = {
         width: starSize,
         height: starSize,
-        resizeMode: 'contain',
+        resizeMode: "contain"
       };
 
-      const iconStyles = [
-        imageStyle,
-        newStarStyle,
-      ];
+      const iconStyles = [imageStyle, newStarStyle];
 
-      iconElement = (
-        <Image
-          source={starIconName}
-          style={iconStyles}
-        />
-      );
+      iconElement = <Image source={starIconName} style={iconStyles} />;
     }
 
     return iconElement;
   }
 
   render() {
-    const {
-      activeOpacity,
-      buttonStyle,
-      disabled,
-    } = this.props;
+    const { activeOpacity, buttonStyle, disabled, testID } = this.props;
 
     return (
       <Button
+        testID={testID}
         activeOpacity={activeOpacity}
         disabled={disabled}
         containerStyle={buttonStyle}
