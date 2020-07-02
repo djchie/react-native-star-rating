@@ -1,18 +1,19 @@
 {
   "extends": "airbnb",
-  "plugins": [
-      "react"
-  ],
+  "plugins": ["react"],
   "rules": {
-    "no-plusplus": [2, {
-      "allowForLoopAfterthoughts": true
-    }],
-    "react/jsx-filename-extension": [1, {
-      "extensions": [
-        ".js",
-        ".jsx"
-      ]
-    }],
+    "no-plusplus": [
+      2,
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
     "import/no-extraneous-dependencies": 0
   },
   "env": {
