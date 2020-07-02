@@ -131,13 +131,16 @@ class StarRating extends Component {
 
     for (let i = 0; i < maxStars; i++) {
       let starIconName = emptyStar
+      let starIconNameTestID = 'empty_star'
       let finalStarColor = emptyStarColor
 
       if (starsLeft >= 1) {
         starIconName = fullStar
+        starIconNameTestID = 'full_star'
         finalStarColor = fullStarColor
       } else if (starsLeft === 0.5) {
         starIconName = halfStar
+        starIconNameTestID = 'half_star'
         if (halfStarColor) {
           finalStarColor = halfStarColor
         } else {
@@ -150,7 +153,8 @@ class StarRating extends Component {
           key={i}
           ref={node => {
             this.starRef.push(node)
-          }}>
+          }}
+          testID={testID + '_' + i}>
           <StarButton
             activeOpacity={activeOpacity}
             buttonStyle={buttonStyle}
@@ -172,7 +176,7 @@ class StarRating extends Component {
             starIconName={starIconName}
             starSize={starSize}
             starStyle={starStyle}
-            testID={testID + '_' + i}
+            testID={starIconNameTestID}
           />
         </AnimatableView>
       )
