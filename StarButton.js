@@ -55,6 +55,7 @@ const propTypes = {
   starSize: PropTypes.number.isRequired,
   activeOpacity: PropTypes.number.isRequired,
   starStyle: ViewPropTypes.style,
+  iconSolid: PropTypes.bool,
   onStarButtonPress: PropTypes.func.isRequired,
 };
 
@@ -62,6 +63,7 @@ const defaultProps = {
   buttonStyle: {},
   icoMoonJson: undefined,
   starStyle: {},
+  iconSolid: false,
 };
 
 class StarButton extends Component {
@@ -100,6 +102,7 @@ class StarButton extends Component {
       starIconName,
       starSize,
       starStyle,
+      iconSolid,
     } = this.props;
 
     const Icon = this.iconSetFromProps();
@@ -121,6 +124,7 @@ class StarButton extends Component {
           size={starSize}
           color={starColor}
           style={newStarStyle}
+          solid={iconSolid}
         />
       );
     } else {
