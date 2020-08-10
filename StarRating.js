@@ -1,23 +1,23 @@
 // React and react native imports
-import React, { Component } from 'react';
-import { View, ViewPropTypes, StyleSheet } from 'react-native';
-import PropTypes from 'prop-types';
-import { View as AnimatableView } from 'react-native-animatable';
+import React, { Component } from "react";
+import { View, ViewPropTypes, StyleSheet } from "react-native";
+import PropTypes from "prop-types";
+import { View as AnimatableView } from "react-native-animatable";
 
 // Local file imports
-import StarButton from './StarButton';
+import StarButton from "./StarButton";
 
 const ANIMATION_TYPES = [
-  'bounce',
-  'flash',
-  'jello',
-  'pulse',
-  'rotate',
-  'rubberBand',
-  'shake',
-  'swing',
-  'tada',
-  'wobble',
+  "bounce",
+  "flash",
+  "jello",
+  "pulse",
+  "rotate",
+  "rubberBand",
+  "shake",
+  "swing",
+  "tada",
+  "wobble",
 ];
 
 const propTypes = {
@@ -54,6 +54,7 @@ const propTypes = {
   starSize: PropTypes.number,
   starStyle: ViewPropTypes.style,
   selectedStar: PropTypes.func,
+  iconSolid: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -62,21 +63,22 @@ const defaultProps = {
   buttonStyle: {},
   containerStyle: {},
   disabled: false,
-  emptyStar: 'star-o',
-  emptyStarColor: 'gray',
-  fullStar: 'star',
-  fullStarColor: 'black',
-  halfStar: 'star-half-o',
+  emptyStar: "star-o",
+  emptyStarColor: "gray",
+  fullStar: "star",
+  fullStarColor: "black",
+  halfStar: "star-half-o",
   halfStarColor: undefined,
   halfStarEnabled: false,
   icoMoonJson: undefined,
-  iconSet: 'FontAwesome',
+  iconSet: "FontAwesome",
   maxStars: 5,
   rating: 0,
   reversed: false,
   starSize: 40,
   starStyle: {},
   selectedStar: () => {},
+  iconSolid: false,
 };
 
 class StarRating extends Component {
@@ -114,11 +116,12 @@ class StarRating extends Component {
       reversed,
       starSize,
       starStyle,
+      iconSolid,
     } = this.props;
 
     const newContainerStyle = {
-      flexDirection: reversed ? 'row-reverse' : 'row',
-      justifyContent: 'space-between',
+      flexDirection: reversed ? "row-reverse" : "row",
+      justifyContent: "space-between",
       ...StyleSheet.flatten(containerStyle),
     };
 
@@ -145,7 +148,9 @@ class StarRating extends Component {
       const starButtonElement = (
         <AnimatableView
           key={i}
-          ref={(node) => { this.starRef.push(node); }}
+          ref={(node) => {
+            this.starRef.push(node);
+          }}
         >
           <StarButton
             activeOpacity={activeOpacity}
@@ -154,10 +159,11 @@ class StarRating extends Component {
             halfStarEnabled={halfStarEnabled}
             icoMoonJson={icoMoonJson}
             iconSet={iconSet}
+            iconSolid={iconSolid}
             onStarButtonPress={(event) => {
               if (animation && ANIMATION_TYPES.includes(animation)) {
                 for (let s = 0; s <= i; s++) {
-                  this.starRef[s][animation](1000 + (s * 200));
+                  this.starRef[s][animation](1000 + s * 200);
                 }
               }
               this.onStarButtonPress(event);
@@ -177,7 +183,10 @@ class StarRating extends Component {
     }
 
     return (
-      <View style={newContainerStyle} pointerEvents={disabled ? 'none' : 'auto'}>
+      <View
+        style={newContainerStyle}
+        pointerEvents={disabled ? "none" : "auto"}
+      >
         {starButtons}
       </View>
     );
