@@ -50,6 +50,7 @@ const propTypes = {
   activeOpacity: PropTypes.number.isRequired,
   starStyle: ViewPropTypes.style,
   onStarButtonPress: PropTypes.func.isRequired,
+  testID: PropTypes.string,
 };
 
 const defaultProps = {
@@ -151,6 +152,7 @@ class StarButton extends Component {
       activeOpacity,
       buttonStyle,
       disabled,
+      testID,
     } = this.props;
 
     return (
@@ -159,6 +161,7 @@ class StarButton extends Component {
         disabled={disabled}
         containerStyle={buttonStyle}
         onPress={this.onButtonPress}
+        testID={testID}
       >
         {this.renderIcon()}
       </Button>

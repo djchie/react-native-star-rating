@@ -16,6 +16,7 @@ const baseProps = {
   starSize: 40,
   activeOpacity: 0.2,
   onStarButtonPress: () => {},
+  testID: 'star-0',
 };
 
 const getMock = (props = {}) => {
@@ -30,5 +31,14 @@ describe('StarButton component', () => {
     const rendered = renderer.create(getMock()).toJSON();
 
     expect(rendered).toBeTruthy();
+  });
+
+  it('renders with testID', () => {
+    const rendered = renderer.create(getMock())
+
+    // NOTE: https://github.com/facebook/react-native/issues/16281
+    const elements = rendered.root.findAll(el => el.props.testID === baseProps.testID && el.type === 'View')
+
+    expect(elements.length).toEqual(1);
   });
 });

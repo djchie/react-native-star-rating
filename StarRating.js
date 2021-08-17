@@ -142,6 +142,8 @@ class StarRating extends Component {
         }
       }
 
+      const testID = `star-${i}`
+
       const starButtonElement = (
         <AnimatableView
           key={i}
@@ -168,6 +170,7 @@ class StarRating extends Component {
             starIconName={starIconName}
             starSize={starSize}
             starStyle={starStyle}
+            testID={testID}
           />
         </AnimatableView>
       );
