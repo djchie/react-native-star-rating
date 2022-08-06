@@ -30,7 +30,7 @@
 
 ### Fork the repo
 
-Use github’s interface to make a fork of the repo, then add that repo as an upstream remote:
+Use github's interface to make a fork of the repo, then add that repo as an upstream remote:
 
 ```
 git remote add upstream https://github.com/djchie/react-native-star-rating.git
@@ -53,7 +53,7 @@ These commands will help you do this:
 git checkout -b `your-branch-name`
 ```
 
-### Make commits to your feature branch. 
+### Make commits to your feature branch.
 
 Prefix each commit like so
   - (feat) Added a new feature
@@ -113,7 +113,7 @@ git rebase --continue
 ```
 
 This will continue the rebasing process. Once you are done fixing all
-conflicts you should run the existing tests to make sure you didn’t break
+conflicts you should run the existing tests to make sure you didn't break
 anything, then run your new tests (there are new tests, right?) and
 make sure they work also.
 

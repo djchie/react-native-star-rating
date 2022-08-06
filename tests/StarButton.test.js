@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import StarButton from '../StarButton';
 
 // https://medium.com/react-native-training/learning-to-test-react-native-with-jest-part-1-f782c4e30101
+/* eslint-disable react/jsx-props-no-spreading */
 
 const baseProps = {
   disabled: false,

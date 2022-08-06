@@ -4,7 +4,10 @@ All notable changes to this package will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.2.0] - 2022-08-06
+- Updated the packages to latest version
+- Able to run with React v18 and Expo v46
+- Fixed the bug related to `propTypes` issues in the dependency component from the 'react-native-button' package. And that file was also merged with this repo.
 
 ## [1.1.0] - 2017-06-20
 ### Added

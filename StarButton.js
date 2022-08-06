@@ -1,11 +1,11 @@
 // React and react native imports
 import React, { Component } from 'react';
-import { Image, StyleSheet, ViewPropTypes } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 
 // Third party imports
-import Button from 'react-native-button';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import EvilIconsIcons from 'react-native-vector-icons/EvilIcons';
 import FeatherIcons from 'react-native-vector-icons/Feather';
@@ -17,6 +17,7 @@ import MaterialCommunityIconsIcons from 'react-native-vector-icons/MaterialCommu
 import OcticonsIcons from 'react-native-vector-icons/Octicons';
 import ZocialIcons from 'react-native-vector-icons/Zocial';
 import SimpleLineIconsIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Button from './Button';
 
 const iconSets = {
   Entypo: EntypoIcons,
