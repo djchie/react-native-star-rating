@@ -4,6 +4,11 @@
 
 # React Native Star Rating Component
 
+What I did in my fork as follows:
+- Updated the packages to latest version
+- Able to run with React v18 and Expo v46
+- Fixed the bug related to `propTypes` issues in the dependency component from the 'react-native-button' package. And that file was also merged with this repo.
+
 > A React Native component for generating and displaying interactive star ratings. Compatible with both iOS and Android.
 
 ## Table of Contents
@@ -26,7 +31,7 @@ or
 ```sh
 yarn add react-native-star-rating
 ```
-2. link `react-native-vector-icons`   
+2. link `react-native-vector-icons`
 please refer to [react-native-vector-icons installation guide](https://github.com/oblador/react-native-vector-icons#installation)
 
 ## Usage
