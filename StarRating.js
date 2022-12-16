@@ -1,6 +1,7 @@
 // React and react native imports
 import React, { Component } from 'react';
-import { View, ViewPropTypes, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
 import { View as AnimatableView } from 'react-native-animatable';
 
