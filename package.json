@@ -55,7 +55,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.6.1",
-    "jest": "^23.1.0",
+    "jest": "^29.3.1",
     "react": "16.3.1",
     "react-native": "0.55.4",
     "react-test-renderer": "16.3.1"
